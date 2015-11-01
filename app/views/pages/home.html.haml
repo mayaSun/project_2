@@ -1,5 +1,5 @@
 .row    
-  .col-md-7
+  .col-md-12
     / Slider Section Starts
     .slider
       #main-carousel.carousel.slide{"data-ride" => "carousel"}
@@ -7,12 +7,17 @@
         .carousel-inner
           .item.active
             %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide1-img.jpg"}/
+            .slider-content-div
+              מקורות מידע המתבססים על מסורת ארוכת שנים של הרמב"ם. 
           .item
             %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide2-img.jpg"}/
           .item
-            %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide3-img.jpg"}/   
+            %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide3-img.jpg"}/  
           .item
             %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide4-img.jpg"}/
+            .slider-content-div
+              = link_to essential_oils_path do
+                שמנים אתריים טהורים ברמה גבוהה ועל טהרת צמחי ארץ ישראל.. 
           .item
             %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide5-img.jpg"}/        
         / Wrapper For Slides Ends
@@ -22,7 +27,12 @@
         %a.right.carousel-control{"data-slide" => "next", :href => "#main-carousel", :role => "button"}
           %span.glyphicon.glyphicon-chevron-right
     / Slider Section Ends
-  .col-md-5
+%br  
+.row 
+  .col-md-4
+    = link_to recipes_path do
+      %img.img-responsive{:alt => "Recipe", :src => "images/reciepes.jpg"}/    
+  .col-md-8
     .information-page-content 
       %h3
         אנו בעשבי ארץ ישראל מאמינים בכוחם של הצמחים והמינרלים בכדור הארץ לתת מזור לתחלואי האדם ולרומם את רוחו.

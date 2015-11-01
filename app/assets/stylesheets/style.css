@@ -103,11 +103,6 @@ hr{
     color: #2F542F; /* Green */
   }
  
-.header-top .home-link {
-  font-size: 30px;
-  float: left;
-  color:  #3e2e08; /*Dark brown*/
-}
 
 /* Header Links Styles Starts */
 
@@ -157,6 +152,12 @@ hr{
     position: relative;
     padding-top: 50px; 
     padding-bottom: 5px; 
+  }
+
+  .main-header .home-link {
+    font-size: 40px;
+    color: #2F542F; /* Green */
+    float: left;
   }
     #search{
       float: right;
@@ -1784,3 +1785,25 @@ hr{
   color: #2F542F; /* Green */
 }
 
+
+
+/*maya*/
+
+@media (min-width: 992px) {
+.slider-content-div {
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    width: 70%;
+    line-height: 1.3;
+    font-size: 42px;
+    color:  #3e2e08; /*Dark brown*/ 
+    text-shadow: -1px 1px 5px white, -1px 1px 5px white, 1px -1px 5px white, 1px -1px 5px white;
+}
+
+.slider-content-div a:hover{
+  text-decoration: none;
+  color: #C9B538; /*gold*/
+}
+
+}
