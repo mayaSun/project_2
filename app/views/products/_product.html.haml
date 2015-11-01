@@ -14,7 +14,7 @@
               .row
                 .col-xs-11.pull-right
                   = hidden_field_tag 'product_id', product.id
-                  = select_tag 'quantity_product', options_for_select([[display_quantity(product.quantity, product.quantity_unit), 'nurmal' ,'data-product-id' => product.id, 'data-product-price' => product.price], [display_quantity(product.medium_package_quantity, product.quantity_unit), 'medium','data-product-id' => product.id, 'data-product-price' => product.medium_package_price], [display_quantity(product.big_package_quantity, product.quantity_unit), 'big','data-product-id' => product.id, 'data-product-price' => product.big_package_price]], display_quantity(product.quantity, product.quantity_unit)) , class: 'form-control'  
+                  = select_tag 'quantity_product', options_for_select([[display_quantity(product.quantity, product.quantity_unit), 'nurmal' ,'data-product-id' => product.id, 'data-product-price' => product.price], [display_quantity(product.medium_package_quantity, product.quantity_unit), 'medium','data-product-id' => product.id, 'data-product-price' => product.medium_package_price], product.big_package_quantity ? [display_quantity(product.big_package_quantity, product.quantity_unit), 'big','data-product-id' => product.id, 'data-product-price' => product.big_package_price] : nil], display_quantity(product.quantity, product.quantity_unit)) , class: 'form-control'  
             - else
               %span אריזה:
               %span  
