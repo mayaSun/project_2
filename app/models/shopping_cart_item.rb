@@ -11,7 +11,7 @@ class ShoppingCartItem <ActiveRecord::Base
   validate :check_essential_oil_package_type
 
   def total_price
-    10 * qty
+    price * qty
   end
 
   def price

@@ -54,6 +54,13 @@
                   לקופה
             %li.dropdown#cart{:class => nav_active(shopping_cart_path)}
               / Shopping Cart Starts
+              = link_to  shopping_cart_path, class: 'btn dropdown-toggle dropdown-toggle-shopping-cart disabled', :type => "button", "data-toggle" => "dropdown" do
+                %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png' } 
+                %span#cart-total.hidden-xs סל קניות (#{shopping_cart.count}) : #{display_price(total_bill)}
+                %i.fa.fa-caret-down
+              %ul.dropdown-menu
+                = render 'shopping_cart_items/shopping_cart_summary', zone: 'header'
+            - if false  
               %button.btn.dropdown-toggle.dropdown-toggle-shopping-cart{"data-toggle" => "dropdown", :type => "button"}
                 %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png' } 
                 %span#cart-total.hidden-xs סל קניות (#{shopping_cart.count}) : #{display_price(total_bill)}
