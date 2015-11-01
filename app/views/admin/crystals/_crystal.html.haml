@@ -1,0 +1,22 @@
+.product-col
+  .row
+    .col-md-8
+      .caption
+        .index-page-name
+          %h4
+            = link_to crystal.name , crystal_path(crystal)
+      %form.form-horizontal
+        .form-group
+          .row
+            .col-xs-6
+              = link_to admin_crystal_path(crystal), method: :delete, :data => {:confirm => 'חשוב טוב!!! האם אתה בטוח שברצונך למחוק קריסטל זה?'}, class: 'btn btn-remove' do
+                מחק
+                %i.fa.fa-remove          
+            .col-xs-6
+              = link_to edit_admin_crystal_path(crystal), class: 'btn btn-update' do
+                ערוך  
+                %i.fa.fa-pencil-square-o             
+    .col-md-4
+      = link_to crystal_path(crystal) do
+        .image
+          %img.img-responsive{:alt => "crystal", :src => crystal.image}/

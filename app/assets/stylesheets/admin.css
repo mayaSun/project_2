@@ -1,0 +1,164 @@
+.admin-menu-toggle-button {
+  background: #C9B538;
+  color: black;
+  text-align: center;
+  font-size: 22px;
+  line-height: 50px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  margin-bottom: 10px;
+}
+
+.admin-product-form-row{
+  padding-bottom:0px;
+}
+
+#admin-product-form-description {
+  width:90%;
+  color:black;
+  background:white;
+}
+
+#admin-symbol-form-description {
+  width:75%;
+  color:black;
+  background: white;
+}
+
+.admin-table{
+  margin-top:30px;
+  color: #0c3308; /*Dark Green*/
+}
+
+.admin-table-title {
+  text-align: center;
+  font-size: 32px;
+  color: #C9B538; /*gold*/
+}
+
+.admin-table thead > tr > td,
+.admin-table tbody > tr > td,
+.admin-table thead,
+.admin-table tbody {
+  border:2px solid #C9B538; /*gold*/
+}
+
+
+  .admin-table thead > tr > td{
+    vertical-align: middle;
+    font-size:18px;
+    color:  #2F542F; /* Green */
+    font-weight:600;
+    vertical-align: middle;
+    font-size:18px;
+  }
+  .admin-table tbody > tr > td a{
+    color: #C9B538; /*gold*/
+    font-size: 20px;
+  }
+  .admin-table tbody > tr > td a:hover{
+    color:#d9cb73; /*bright gold*/
+    text-decoration: none;
+  }
+.admin-table-image {
+  width: 100px;
+  height: 100px;
+}
+
+.btn-sent {
+  background: #4ACC3F; /* light green*/
+  color: #3e2e08 !important; /*Dark brown*/
+}
+
+.btn-send {
+  background: #ff0000; /* red*/
+  color: #3e2e08 !important; /*Dark brown*/
+}
+
+.btn-send:hover,
+.btn-sent:hover {
+  color:  #C9B538 !important; /*gold*/
+}
+
+/* Product */
+#product-form .form-control{
+  background: white;
+  border:solid  #2F542F; /* Green */
+  border-width:1px 0 1px 1px;
+  color:black;
+}
+      
+.button-group {
+  padding-top:10px;
+}
+
+.btn-add {
+  background: #2F542F; /* Green */
+  color: white;
+}
+
+.btn-add:hover {
+  color: #C9B538; /*gold*/
+}
+
+.btn-remove {
+  color: #3e2e08; /*Dark brown*/
+  background: #e60707; /*Red*/
+  margin-right:3px;
+}
+
+.btn-remove .fa {
+  color: #3e2e08; /*Dark brown*/
+}
+
+.btn-remove:hover {
+  color: black;
+}
+
+.btn-update {
+  font-size: 18px;
+  background: #C9B538; /*gold*/
+  color: #2F542F; /* Green */
+}
+
+.btn-update:hover{ 
+  color: white; 
+}
+
+.order-col {
+  padding:10px 10px 10px;
+  margin-bottom:15px;
+  color: #3e2e08; /*Dark brown*/
+  border:1px solid white; 
+}
+
+.order-col .input-row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.order-col .field-name{
+  color: #2F542F; /* Green */
+  font-size:18px;
+}
+
+.order-col .field{
+  font-size:18px;
+}
+
+/* users */
+.admin-user-role-select {
+  color: black;
+}
+
+/* Category */
+
+.admin-category-product-image {
+  margin-bottom: 7px;
+}
+
+/*Check box desighn */
+.checkbox-inline input[type="checkbox"]{
+  margin-right: -15px !important;
+}

@@ -1,0 +1,29 @@
+- if shopping_cart.empty?
+  %li
+    %h4.text-right סל הקניות ריק
+- else
+  %li
+    %table.table.hcart
+      - shopping_cart.each do |shopping_cart_item| 
+        %tr          
+          %td.text-center
+            - if zone == 'checkout'
+              %img.img-responsive.center{:alt => "image", :src => shopping_cart_item.image.big_thumb, :title => "image"}/
+            - else
+              %img.img-responsive.center{:alt => "image", :src => shopping_cart_item.image.small_thumb, :title => "image"}/ 
+          %td.text-center
+            = link_to shopping_cart_item.name, shopping_cart_item.sellable
+          %td.text-center #{shopping_cart_item.qty}x
+          %td.text-center #{display_price(shopping_cart_item.total_price)}
+  %li.pull-left
+    %table.table.table-bordered.total
+      %tbody
+        %tr
+          %td.text-left
+            %strong סה"כ:        
+          %td.text-right #{display_price(total_bill)}
+    %br        
+    %p.text-right.btn-block1
+      = link_to shopping_cart_path do
+        ראה סל קניות
+        %i.fa.fa-shopping-cart

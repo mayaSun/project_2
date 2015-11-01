@@ -1,0 +1,19 @@
+.content-box
+  .page-box.medicinal-herb-container
+    / Medical Activity Start
+    .header 
+      = @medical_activity.name
+    %p  
+      = @medical_activity.description 
+      / Medical Activity End    
+  / Related Herbs Starts
+  .product-info-box
+    .content-box
+      %h3.heading צמחי מרפא המכילים חומרים פעילים המסייעים ל#{@medical_activity.name}
+      / Herbs Row Starts
+      .row
+        - @medicinal_herbs.each do |medicinal_herb|
+          .col-md-3.col-sm-4.col-xs-6.no-padding.pull-right
+            = render 'medicinal_herbs/medicinal_herb', :medicinal_herb => medicinal_herb
+      / Herbs Row Ends
+  / Related Herbs Ends   

@@ -1,0 +1,26 @@
+.product-col
+  .row
+    .col-md-7
+      .caption
+        %h4
+          = link_to product.name , product_path(product)
+        .price
+          %span.price-new 
+            = display_price(product.price)  
+        .description
+          = product.short_description
+      %form.form-horizontal
+        .form-group
+          .row
+            .col-xs-6
+              = link_to admin_product_path(product), method: :delete, :data => {:confirm => 'חשוב טוב!!! האם אתה בטוח שברצונך למחוק מוצר זה?'}, class: 'btn btn-remove' do
+                מחק
+                %i.fa.fa-remove          
+            .col-xs-6
+              = link_to edit_admin_product_path(product), class: 'btn btn-update' do
+                ערוך  
+                %i.fa.fa-pencil-square-o             
+    .col-md-5
+      = link_to product_path(product) do
+        .image
+          %img.img-responsive{:alt => "product", :src => product.image}/

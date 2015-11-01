@@ -1,0 +1,9 @@
+.row 
+  .col-md-12   
+    .panel.panel-smart
+      %h3.panel-title
+        = link_to 'הוסף מרשם חדש לאתר +' , new_admin_recipe_path
+%br      
+- @recipes.each do |recipe|
+  = render 'recipe', recipe: recipe
+  

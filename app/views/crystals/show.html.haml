@@ -1,0 +1,78 @@
+/ crystal Info Starts
+.content-box
+  .row.product-info
+    / Left Starts
+    .col-sm-9.crystal-details
+      .row
+        .col-md-3.pull-right
+          / crystal Name Starts
+          .product-header
+            %h2
+              = @crystal.name
+            / crystal Name Ends
+            / Price Starts
+            .price{:dir => "rtl"} 
+              %span.price-new 
+                = display_price(@crystal.price)
+            / Price Ends
+            %ul.list-unstyled.manufacturer
+              %li
+                %span נוסחה כימית: 
+                %span 
+                  = @crystal.chemical_formula      
+              %li
+                %span קשיות: 
+                %span 
+                  = @crystal.hardness   
+            %br      
+            %br
+            %br
+            - if false
+              .options
+                %form.form-horizontal
+                  .form-group
+                    %button.btn.btn-cart{:type => "button"}
+                      צור קשר לרכישה                
+        .col-md-9        
+          / Manufacturer Start  
+          .panel-smart
+            %p
+              = @crystal.qualities
+            - if @crystal.use_instructions  
+              %p
+                אופן השימוש:&nbsp #{@crystal.use_instructions}
+            .warning
+              %p
+                אין אנו מתימרים להיות האורים ותומים של תורת הקריסטלים הנפלאה, תמיד טוב לקרוא מידע נוסף וגם להתיעץ עם גמולוג לגבי חומרים אשר יתכן ונמצאים גם באבן זו.
+            - if @crystal.warnings
+              %p      
+                = @crystal.warnings
+          .next-prev-btn-group 
+            .pull-right        
+              = link_to crystal_path(@crystal.prev) do
+                %i.fa.fa-arrow-right
+                לקריסטל הקודם
+            .pull-left    
+              = link_to crystal_path(@crystal.next) do
+                לקריסטל הבא
+                %i.fa.fa-arrow-left
+          %br
+          %br
+          .back-to-index  
+            = link_to  crystals_path do
+              %i.fa.fa-arrow-up
+              חזרה לאינדקס קריסטלים 
+          / Manufacturer Ends
+        / Left Ends  
+    / Right Starts
+    .col-sm-3.images-block      
+      %img.img-responsive.thumbnail{:alt => "Image", :src => @crystal.image}/  
+      .attribute
+        - if @crystal.image_link && @crystal.image_link.length > 5
+          %span
+            photograph from the  
+          = link_to display_image_attribute(@crystal.image_link), @crystal.image_link, target: :_blank
+    / Right Ends
+    / crystal Info Ends
+/ Primary Content Ends
+/ Main Container Ends

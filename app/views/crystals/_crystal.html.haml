@@ -1,0 +1,12 @@
+.medicinal-herb-col
+  = link_to  crystal_path(crystal) do  
+    .image.crystal-thumb-image
+      %img.img-responsive{:alt => "crystal", :src => crystal.image.big_thumb}/ 
+    .attribute
+      - if crystal.image_link && crystal.image_link.length > 5
+        %span
+          photograph from the  
+        = link_to display_image_attribute(crystal.image_link), crystal.image_link, target: :_blank
+    .index-page-name       
+      %h4
+        = crystal.name       

@@ -1,0 +1,17 @@
+%section.forgot_password.container
+  .row
+    .col-sm-10.col-bg-offset-1
+      = form_tag password_reset_path, class: "sign_in" do
+        %header
+          %h1 שכחת את הסיסמה?
+          %p מלא את האי מייל שלך ואנו נשלח לך מייל עם קישור אשר באמצעותו תוכל לחדש את הסיסמה
+        .form-group
+          .row
+            .col-sm-2.pull-right
+              = label_tag  :email, "אי מייל:" 
+            .col-sm-4.pull-right
+              = email_field_tag :email
+        .form-group.action
+          = submit_tag "שלח קישור", class: "btn btn-update"
+
+

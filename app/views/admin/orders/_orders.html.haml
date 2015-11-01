@@ -1,0 +1,34 @@
+.table-responsive.admin-table
+  %table.table.table-bordered
+    %thead
+      %tr
+        %td.text-center
+          שם משתמש
+        %td.text-center
+          תאריך
+        %td.text-center
+          סכום
+        %td.text-center
+          הזמנה
+        %td.text-center
+    %tbody
+      - orders.each do |order|
+        %tr
+          %td.text-center
+            - if order.user
+              = link_to order.user.name, user_path(order.user)
+            - else
+              אורח            
+          %td.text-center
+            = display_date(order.created_at)
+          %td.text-center
+            = display_price(order.total_bill)
+          %td.text-center
+            = link_to 'הראה הזמנה', edit_admin_order_path(order) 
+          %td.text-center
+            - if order.status == 'Sent'
+              = link_to edit_admin_order_path(order) , class: 'btn btn-sent tool-tip' do
+                נשלך
+            - else
+              = link_to edit_admin_order_path(order) , class: 'btn btn-send tool-tip' do
+                שלך

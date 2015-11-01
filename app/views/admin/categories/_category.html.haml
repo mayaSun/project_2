@@ -1,0 +1,18 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title
+      = link_to category.name, admin_category_path(category)
+%h5
+  - if  category.products.count == 0
+    אין מוצרים בקטגוריה זו
+.hidden-xs  
+  .row  
+    - category.products.each do |product|
+      .col-md-4.col-sm-4.col-xs-12.no-padding.pull-right
+        = render 'admin/products/product', product: product     
+.cart-button.button-group
+  = link_to 'ערוך קטגוריה',edit_admin_category_path(category), class: 'btn btn-update'
+  - if category.products.count <= 0
+    = link_to admin_category_path(category), method: :delete, class: 'btn btn-remove' do
+      מחק
+      %i.fa.fa-remove 

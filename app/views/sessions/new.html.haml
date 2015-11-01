@@ -1,0 +1,26 @@
+.modal-dialog
+  .row
+    .modal-content.col-sm-8.col-sm-offset-2.no-padding
+      .modal-body
+        .panel.panel-smart
+          .panel-heading
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+            .panel-title 
+              התחברות לקוחות קיימים       
+          .panel-body{:style => 'direction:RTL;'} 
+            = render 'shared/messages' 
+            = bootstrap_form_tag url:'/login', remote: true, layout: :horizontal do |f|
+              = f.email_field :email, label: "אי מייל:" ,label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+              = f.password_field :password, label:'סיסמה:', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+              = token_tag
+              .row
+                .col-xs-6
+                  = link_to 'שכחת את הסיסמה?', nil    
+                .col-xs-5
+                  = f.submit 'התחבר', class: 'btn btn-update' , remote: false
+              %br
+              לקוח חדש? 
+              %span 
+                = link_to 'הרשם כאן', sign_up_path
+              %span וקבל 2 צמחי מרפא במתנה.  

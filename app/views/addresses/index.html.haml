@@ -1,0 +1,24 @@
+.information-page-content
+  .row
+    .col-md-9     
+      .panel.panel-smart
+        .panel-body
+          %p
+            ע"י הוספת כתובת חדשה לרשימת הכתובות השמורות שלך תוכל להנות מקנייה מהירה יותר בעבור כתובת זו מבלי שתצטרך להכניס שוב כתובת זו בעת הקנייה.
+        .panel-heading
+          %h4.panel-title 
+            כתובות למשלוחים
+        .panel-body#shipping-addresses
+          - @shipping_addresses.each do |address|
+            = render 'address', :address => address, :type => 'shipping'
+        .panel-heading
+          %h4.panel-title 
+            כתובות לחשבוניות
+        .panel-body#billing-addresses
+          - @billing_addresses.each do |address|
+            = render 'address', :address => address, :type => 'billing'
+        = link_to new_address_path do
+          %span הוסף כתובת חדשה
+          %i.fa.fa-plus{:title => "Login"}
+    .col-md-3
+      = render 'users/user_menu'    

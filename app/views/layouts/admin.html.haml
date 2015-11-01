@@ -1,0 +1,15 @@
+!!! 5
+%html{:dir => "rtl"}
+  %head
+    = render 'shared/head'
+  %body
+    = render 'shared/header'
+    = render 'shared/messages'
+    #main-container.container
+      .row
+        .col-md-10.col-sm-12
+          = yield
+        .col-md-2.col-sm-12  
+          = render 'shared/admin_menu'
+    %footer
+      = render 'shared/footer'

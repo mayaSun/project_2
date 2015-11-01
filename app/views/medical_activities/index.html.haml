@@ -1,0 +1,39 @@
+.row
+  / Medical Activities Index Starts
+  .col-sm-12
+    .content-box
+      .row.product-info
+        / Left Starts
+        .col-sm-3.images-block
+          %p
+            %img.img-responsive.thumbnail{:alt => "Image", :src => '/images/medical_activity.jpg' }  
+        .col-sm-9.product-details
+          / Product Name Starts
+          .product-header
+            %h2 
+              צמחי מרפא לבעיות רפואיות             
+          / Category Name Ends
+          %p 
+            מקורות המידע שלנו מתבססים על מסורת ארוכת שנים של הרמב"ם. זיהוי הבעייה הרפואית צריך להתבצע ע"י רופא מוסמך בלבד, וגם השימוש בצמחי מרפא הינו לפי התייעצות עם רופא. 
+      .medicinal-herbs-list
+        .header
+          אינדקס בעיות רפואיות לפי א-ב
+        %hr 
+        .row
+          /* First third of Medical Activities list*/
+          .col-sm-4.pull-right 
+            - @medical_activities_1.each do |medical_activity|
+              = link_to medical_activity.name, medical_activity_path(medical_activity) 
+              %br
+          /* Secound third of Medical Activities list*/     
+          .col-sm-4.pull-right
+            - @medical_activities_2.each do |medical_activity|
+              = link_to medical_activity.name, medical_activity_path(medical_activity) 
+              %br
+          /* Last third of Medical Activities list*/
+          .col-sm-4.pull-right
+            - @medical_activities_3.each do |medical_activity|
+              = link_to medical_activity.name, medical_activity_path(medical_activity) 
+              %br      
+            
+/ Medical Activities Index Starts

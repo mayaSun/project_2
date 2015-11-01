@@ -1,0 +1,99 @@
+.content-box
+  .page-box.medicinal-herb-container
+    .row
+      / Herb images start
+      .col-sm-4.no-padding
+        - if @medicinal_herb.sprout_image.file
+          .image
+            %img.img-responsive{:alt => "product", :src => @medicinal_herb.sprout_image}/
+            נבט של  
+            %span 
+              = @medicinal_herb.name
+        - if @medicinal_herb.image      
+          .image
+            %img.img-responsive{:alt => "product", :src => @medicinal_herb.image}/ 
+            = @medicinal_herb.name
+        .next-prev-btn-group 
+          .pull-right        
+            = link_to  medicinal_herb_path(@medicinal_herb.prev) do
+              %i.fa.fa-arrow-right
+              לצמח הקודם
+          .pull-left    
+            = link_to  medicinal_herb_path(@medicinal_herb.next) do
+              לצמח הבא
+              %i.fa.fa-arrow-left
+        %br
+        %br
+        .back-to-index  
+          = link_to  medicinal_herbs_path do
+            %i.fa.fa-arrow-up
+            חזרה לאינדקס צמחים                   
+      / Herb images ends
+      / Herbs Description Start
+      .col-sm-8
+        .header 
+          = @medicinal_herb.name
+        .main-info  
+          %p
+            %span שם לטיני:
+            %span.latin-name.english 
+              = @medicinal_herb.latin_name
+        .data-title שימוש רפואי ע"פ הרמב"ם
+        %p
+          = @medicinal_herb.medicinal_properties  
+        .data-title אופן השימוש
+        - if @medicinal_herb.use_instructions != nil && @medicinal_herb.use_instructions.length > 5
+          %p
+            = @medicinal_herb.use_instructions
+        %p
+          טינקטורה - משרה כהלית. מרתח - מים שרתחו עם הצמח. חליטה - צמח שמוכנס למים לאחר שרתחו.            
+        .data-title אזהרות
+        - if @medicinal_herb.warnings != nil && @medicinal_herb.warnings.length > 5
+          %p.warnings
+            = @medicinal_herb.warnings
+        %p
+          טוב לקרוא מידע נוסף ויש להתיעץ עם רופא לפני השימוש.
+        - if false
+          %button.advance-info-btn{"data-target" => "#toggleAdvanceInformation", "data-toggle" => "collapse", :type => "button", :href => "#toggleAdvanceInformation"}
+            .display-info
+              למידע נוסף
+              %i.fa.fa-arrow-down
+            .hide-info
+              הסתר מידע נוסף
+              %i.fa.fa-arrow-up
+          / Collapsible Element HTML
+          #toggleAdvanceInformation.collapse.in
+        - if @medicinal_herb.other_qualities != nil && @medicinal_herb.other_qualities.length > 5
+          .data-title סגולות נוספות
+          %p
+            = @medicinal_herb.other_qualities       
+        - if !@medicinal_herb.active_ingredients.empty?
+          .data-title
+            חומרים פעילים 
+            %p 
+              - @medicinal_herb.active_ingredients.each_with_index do |active_ingredient, index| 
+                = link_to active_ingredient.name, active_ingredient_path(active_ingredient)
+                - if index == @medicinal_herb.active_ingredients.count - 1
+                  \.
+                - else
+                  ,
+        %br/
+        - if !@medicinal_herb.research_links.empty?
+          .data-title מחקרים
+          - @medicinal_herb.research_links.each do |research_link|
+            = link_to research_link.url, research_link.url, target: :_blank
+      / Herbs Description End            
+/ Medisinal Herb End 
+- if !@products.empty? 
+  / Related Products Starts
+  .product-info-box
+    .content-box
+      %h3.heading מוצרים
+      / Products Row Starts
+      .row
+        - @products.each do |product|
+          .col-md-4.col-sm-4.col-xs-12.no-padding
+            = render 'products/product', :product => product
+  / Products Row Ends
+  / Related Products Ends   
+/ Main Container Ends

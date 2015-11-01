@@ -1,0 +1,39 @@
+.row
+  / Medical Activities Index Starts
+  .col-sm-12
+    .content-box
+      .row.product-info
+        / Left Starts
+        .col-sm-3.images-block
+          %p
+            %img.img-responsive.thumbnail{:alt => "Image", :src => '/images/active_ingredients.jpg' }  
+        .col-sm-9.product-details
+          / Product Name Starts
+          .product-header
+            %h2 
+              צמחי מרפא לפי החומר הפעיל בצמח             
+          / Category Name Ends
+          %p 
+            מקורות המידע שלנו מתבססים על מסורת ארוכת שנים של הרמב"ם. זיהוי הבעייה הרפואית צריך להתבצע ע"י רופא מוסמך בלבד, וגם השימוש בצמחי מרפא הינו לפני התייעצות עם רופא.      
+      .medicinal-herbs-list
+        .header
+          אינדקס חומרים פעילים לפי א-ב
+        %hr 
+        .row
+          /* First third of Medical Activities list*/
+          .col-sm-4.pull-right 
+            - @active_ingredients_1.each do |active_ingredient|
+              = link_to active_ingredient.name, active_ingredient_path(active_ingredient) 
+              %br
+          /* Secound third of Medical Activities list*/     
+          .col-sm-4.pull-right
+            - @active_ingredients_2.each do |active_ingredient|
+              = link_to active_ingredient.name, active_ingredient_path(active_ingredient) 
+              %br
+          /* Last third of Medical Activities list*/
+          .col-sm-4.pull-right
+            - @active_ingredients_3.each do |active_ingredient|
+              = link_to active_ingredient.name, active_ingredient_path(active_ingredient) 
+              %br      
+            
+/ Medical Activities Index Starts

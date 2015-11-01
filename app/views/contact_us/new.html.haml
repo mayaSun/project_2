@@ -1,0 +1,44 @@
+/ Main Heading Starts
+%h2.main-heading.text-center
+  כתוב לנו
+/ Main Heading Ends
+/ Starts
+.row
+  / Contact Details Starts
+  .col-md-4.col-sm-5
+    .panel.panel-smart
+      .panel-heading
+        %h3.panel-title פרטי תקשורת
+      .panel-body
+        %ul.list-unstyled.contact-details
+          %li.clearfix
+            %i.fa.fa-home
+            %span
+              החברה שלנו
+              %br/
+              השומרון 20 ירושלים
+          %li.clearfix
+            %i.fa.fa-phone
+            %span
+              052-8958957
+              %br/
+          %li.clearfix
+            %i.fa.fa-envelope
+            %span
+              holylandherbs@gmail.com
+              %br/
+  / Contact Details Ends
+  / Contact Form Starts
+  .col-md-8.col-sm-7
+    .panel.panel-smart
+      .panel-heading
+        %h3.panel-title אנה מלא תוכן פניתך
+      .panel-body
+        = bootstrap_form_tag url:'/contact_us', layout: :horizontal do |f|
+          = f.text_field :name, label: "שם:" ,label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9"           
+          = f.email_field :email, label: "אי מייל:" ,label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9"    
+          = f.text_field :subject, label: "נושא פנייה:" ,label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9" 
+          = f.text_area :message, label: "תוכן הפנייה:" ,label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9", rows: 5
+          .col-sm-offset-2.col-sm-10
+            = f.submit 'שלח', class: 'btn btn-update', id: 'contact_us-form-submit'
+  / Contact Form Ends

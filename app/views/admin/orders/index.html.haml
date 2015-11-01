@@ -1,0 +1,14 @@
+.admin-table-title
+  הזמנות ששולמו ותרם נשלחו
+= render 'orders', :orders => @paid_orders
+.admin-table-title
+  הזמנות המחכות לאישור תשלום
+= render 'orders', :orders => @pending_orders
+.admin-table-title
+  הזמנות שנשלחו
+= render 'orders', :orders => @sent_orders
+- if !@undefined_orders.empty?
+  .admin-table-title
+    הזמנות בעלות סטטוס לא מוגדר
+  = render 'orders', :orders => @undefined_orders
+ 

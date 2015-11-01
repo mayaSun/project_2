@@ -1,0 +1,11 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title 
+      = @recipe.new_record? ? 'הוסף מרשם חדש' : 'עדכן מרשם' 
+  .panel-body  
+    = bootstrap_form_for [:admin, @recipe], layout: :horizontal do |f|
+      = f.text_field :title, label: '*כותרת:',label_col: "col-sm-1.col-sm-push-11", control_col: "col-sm-11"   
+      = f.file_field :image, label: 'תמונה:',label_col: "col-sm-1.col-sm-push-11", control_col: "col-sm-11"      
+      = f.text_area :text, label: '*טקסט:',label_col: "col-sm-1.col-sm-push-11", control_col: "col-sm-11", rows: '20'   
+      = f.button class: 'btn btn-add', id: 'recipe-form-submit' do
+        = @recipe.new_record? ? 'הוסף מרשם' : 'עדכן מרשם'

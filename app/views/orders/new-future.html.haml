@@ -1,0 +1,64 @@
+%section.registration-area
+  .row
+    .col-sm-4        
+      #cart.btn-group.btn-block
+        .dropdown-menu{ style: 'display:block;'}
+          = render 'shopping_cart_items/shopping_cart_summary'   
+    .col-sm-8
+      .panel.panel-smart
+        .payment-type-title
+          = link_to Order.paypal_url(payment_path) , class: 'payment-type-title'do
+            %i.fa.fa-caret-left
+            שלם עם
+            %img{:alt => "PaymentGateway", :src => "/images/paypal-logo.png"}/  
+        %hr
+        .payment-type-title
+          .row
+            .col-sm-4.pull-right
+              %span
+                %i.fa.fa-caret-down
+              %span
+                שלם בכרטיס אשראי
+              %br
+            .col-sm-8.pull-right  
+              %ul.pull-right.list-inline
+                %li
+                  %img{:alt => "PaymentGateway", :src => "/images/payment-icon/cirrus.png"}/
+                %li
+                  %img{:alt => "PaymentGateway", :src => "/images/payment-icon/visa.png"}/
+                %li
+                  %img{:alt => "PaymentGateway", :src => "/images/payment-icon/mastercard.png"}/
+                %li
+                  %img{:alt => "PaymentGateway", :src => "/images/payment-icon/americanexpress.png"}/
+          %br
+        .panel-body
+          .row
+            .col-sm-12.col-md-7.col-md-offset-5  
+              = bootstrap_form_tag url:'/payment', method: :post, layout: :horizontal do |f|
+                %span.payment-errors
+                = f.select :card_brand, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], { label: 'סוג הכרטיס', label_col: "col-sm-5.col-sm-push-7", control_col: "col-sm-7"}
+                = f.text_field :card_number ,label: 'מספר כרטיס' , label_col: "col-sm-5.col-sm-push-8", control_col: "col-sm-7"
+                .form-group
+                  %label.control-label{:class => "col-sm-5.col-sm-push-7", :for => "card_verification"} קוד אבטחת כרטיס
+                  .col-sm-4
+                    = link_to nil, 'מה זה?'
+                  .col-sm-3
+                    %input#card_verification.form-control{:name => "card_verification", :type => "text"}/
+                = f.date_select :card_expires_on, label: 'תאריך פקיעת תוקף', discard_day: true, start_year: Date.today.year, end_year: (Date.today.year+10), add_month_numbers: true,label_col: "col-sm-5.col-sm-push-7", control_col: "col-sm-7"
+                %fieldset.actions.control-group.col-sm-offset-2
+                  = f.submit "שלם", class: "btn btn-update"
+                  :javascript
+                    $("form#new_registration").submit( function() {
+                      $(this).find('input[type=submit]').attr('disabled', 'disabled');
+                      $(this).find('input[type=submit]').val("Submitting, please wait ...");
+                    });
+
+
+
+
+
+
+
+
+
+

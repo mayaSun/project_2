@@ -1,0 +1,46 @@
+.row
+  / Medicinal Herbs Index Starts
+  .col-sm-12
+    .content-box
+      .row.product-info
+        / Left Starts
+        .col-sm-4.images-block
+          %img.img-responsive.thumbnail{:alt => "Image", :src => '/images/seeds.jpg' }  
+        .col-sm-8.product-details
+          / Product Name Starts
+          .product-header
+            %h2 
+              בנק הזרעים              
+          / Category Name Ends
+          %p 
+            בנק הזרעים הפעיל שהקמנו מיועד לאנשים אשר רוצים לצרוך מזון צמחי איכותי ולעזור בשימור הידע הגנטי של אמא אדמה. פרוייקט זה הוקם בסיועם של הרבה אנשים טובים אשר אספו, ליקטו , זרעים בכל רחבי הגלובוס. והגדש הוא על זרעים של צמחי מרפא מובחרים ולעולם לא מהונדסים, כמו כן ניתן להשיג אצלנו זרעים אורגנים אשר את חלקם אנו מגדלים ואת חלקם אנו מביאים מרחבי העולם. ועיקר עניננו ולמעשה מטרתינו העיקרית היא להפוך בנק זה לספריה פעילה אשר בא יוכלו אנשים יקרים ברחבי הארץ והעולם להחליף לקנות ולמכור זרעים איכותיים.
+          %p
+            לבדיקת זמינותם של הזרעים במלאי ולשם ביצוע הזמנה יש להתקשר למוקד שרות לקוחות בין השעות 9:00 - 12:00,
+            או לשלוח מייל ל: holy-land-herbs@gmail.com
+          %h4
+            במידה ויש לכם זרעים איכותיים להחלפה ו/או ידע ששווה לשתף אנא צרו קשר.
+      %br     
+      .medicinal-herbs-list
+        .header
+          רשימת הזרעים
+        .row
+          /* First third of Medicinal Herbs list*/
+          .col-xs-12.col-sm-3.pull-right 
+            - @medicinal_herbs_1.each do |medicinal_herb|
+              = medicinal_herb.name 
+              %br
+          /* Secound third of Medicinal Herbs list*/     
+          .col-xs-12.col-sm-3.pull-right
+            - @medicinal_herbs_2.each do |medicinal_herb|
+              = medicinal_herb.name 
+              %br
+          .col-xs-12.col-sm-3.pull-right
+            - @medicinal_herbs_3.each do |medicinal_herb|
+              = medicinal_herb.name 
+              %br     
+          /* Last third of Medicinal Herbs list*/
+          .col-xs-12.col-sm-3.pull-right
+            - @medicinal_herbs_4.each do |medicinal_herb|
+              = medicinal_herb.name 
+              %br     
+/ Medicinal Herbs Index Starts

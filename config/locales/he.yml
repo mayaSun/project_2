@@ -1,0 +1,131 @@
+he:
+  activerecord:
+    errors:
+      models:
+        active_ingredient:
+          attributes:
+            name:
+              blank: "יש למלא את השדה"
+            english_name:
+              blank: "יש למלא את השדה" 
+        address:
+          attributes:
+            first_name:
+              blank: "יש למלא את השדה"
+            last_name: 
+              blank: "יש למלא את השדה"            
+            address_line1: 
+              blank: "יש למלא את השדה"
+            city:
+              blank: "יש למלא את השדה"
+            country_code: 
+              blank: "יש למלא את השדה"
+            email:      
+              blank: "יש למלא את השדה"
+        category:      
+          attributes:
+            name:
+              blank: "יש למלא את השדה"
+            english_name:
+              blank: "יש למלא את השדה" 
+        crystal:
+          attributes:
+            name:
+              blank: "יש למלא את השדה"
+            english_name:
+              blank: "יש למלא את השדה" 
+        essential_oil:
+          attributes:
+            name:
+              blank: "יש למלא את השדה"
+            english_name:
+              blank: "יש למלא את השדה" 
+            price_5ml:
+              not_a_number:
+                "השדה חייב להיות ערך מספרי" 
+              greater_than_or_equal_to:
+                "השדה חייב להיות מספר חיובי"     
+            price_10ml:
+              not_a_number:
+                "השדה חייב להיות ערך מספרי" 
+              greater_than_or_equal_to:
+                "השדה חייב להיות מספר חיובי" 
+            price_50ml:
+              not_a_number:
+                "השדה חייב להיות ערך מספרי" 
+              greater_than_or_equal_to:
+                "השדה חייב להיות מספר חיובי"
+        jewelry: 
+          attributes:
+            name:
+              blank: "יש למלא את השדה"
+            english_name:
+              blank: "יש למלא את השדה" 
+            price:
+              not_a_number:
+                "השדה חייב להיות ערך מספרי" 
+              greater_than_or_equal_to:
+                "השדה חייב להיות מספר חיובי"  
+        medical_activity: 
+          attributes:
+            name:
+              blank: "יש למלא את השדה"
+            english_name:
+              blank: "יש למלא את השדה"   
+        medicinal_herb: 
+          attributes:
+            name:
+              blank: "יש למלא את השדה"
+            english_name:
+              blank: "יש למלא את השדה"
+        order: 
+          attributes:              
+            shipping_address_id:
+              blank: "יש למלא את השדה"                                                                   
+        product: 
+          attributes:
+            name:
+              blank: "יש למלא את השדה"
+            english_name:
+              blank: "יש למלא את השדה"
+            short_description:  
+              blank: "יש למלא את השדה"
+            category: 
+              blank: "יש למלא את השדה"            
+            price:  
+              blank: "יש למלא את השדה"            
+              not_a_number:
+                "השדה חייב להיות ערך מספרי" 
+              greater_than_or_equal_to:
+                "השדה חייב להיות מספר חיובי"             
+            image: 
+              blank: "יש למלא את השדה"            
+            quantity: 
+              blank: "יש למלא את השדה"
+              not_a_number:
+                "השדה חייב להיות ערך מספרי" 
+              greater_than_or_equal_to:
+                "השדה חייב להיות מספר חיובי"               
+            quantity_unit:
+              blank: "יש למלא את השדה"             
+            package_weight:
+              blank: "יש למלא את השדה"   
+              not_a_number:
+                "השדה חייב להיות ערך מספרי" 
+              greater_than_or_equal_to:
+                "השדה חייב להיות מספר חיובי"                      
+            stock: 
+              not_a_number:
+                "השדה חייב להיות ערך מספרי" 
+              greater_than_or_equal_to:
+                "השדה חייב להיות מספר חיובי"                         
+        user: 
+          attributes:
+            email:
+              blank: "יש למלא את השדה"
+              taken: "האי מייל כבר קיים במערכת"
+            password:
+              blank: "יש למלא את השדה"
+              too_short: "יש להכניס מינימום 5 תוים"
+            password_confirmation:
+              confirmation: "הכנס שוב את הסיסמה"  

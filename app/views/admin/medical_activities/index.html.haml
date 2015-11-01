@@ -1,0 +1,19 @@
+.row 
+  .col-md-12   
+    .panel.panel-smart
+      %h3.panel-title
+        = link_to 'הוסף בעיה רפואית לאתר +' , new_admin_medical_activity_path  
+.product-info-box
+  .content-box
+    / medical_activitys Row Starts
+    .medicinal-herbs-list
+      .row
+        /* Last half of Medicinal herbs list*/
+        .col-sm-6.pull-right
+          - @medical_activities_1.each do |medical_activity|
+            = render 'medical_activity', medical_activity: medical_activity     
+        /* first half of Medicinal herbs list*/     
+        .col-sm-6
+          - @medical_activities_2.each do |medical_activity|
+            = render 'medical_activity', medical_activity: medical_activity 
+         

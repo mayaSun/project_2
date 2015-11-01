@@ -1,0 +1,24 @@
+.content-box
+  .page-box.medicinal-herb-container
+    / Medical Activity Start
+    .header 
+      = @active_ingredient.name
+    %p  
+      = @active_ingredient.description 
+      / Medical Activity End    
+  / Related Herbs Starts
+  .product-info-box
+    .content-box
+      %h3.heading צמחי מרפא
+      / Herbs Row Starts
+      .row
+        - @medicinal_herbs.each do |medicinal_herb|
+          .col-md-3.col-sm-4.col-xs-6.no-padding.pull-right
+            .medicinal-herb-col
+              = link_to  medicinal_herb_path(medicinal_herb) do
+                .image
+                  %img.img-responsive{:alt => "product", :src => medicinal_herb.image}/              
+                %h4
+                  = medicinal_herb.name   
+      / Herbs Row Ends
+  / Related Herbs Ends   

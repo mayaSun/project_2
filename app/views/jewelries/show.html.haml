@@ -1,0 +1,75 @@
+/ jewelry Info Starts
+.content-box
+  .row.product-info
+    / Left Starts
+    .col-sm-9.product-details
+      / jewelry Name Starts
+      .product-header
+        %h2
+          = @jewelry.name
+        / jewelry Name Ends
+        / Price Starts
+        .row
+          .col-sm-3.pull-right
+            .price{:dir => "rtl"} 
+              %span
+                עם אבלון  
+              %span.price-new#price-new 
+                = display_price(@price)
+          .col-sm-3.pull-right
+            .image
+              %img.img-responsive{:alt => "crystal", :src => Crystal.first.image.big_thumb}/ 
+        / Price Ends
+      %br  
+      = @jewelry.long_description
+      %br
+      %br
+      - if !@jewelry.jewelry_crystals.empty?
+        .product-header
+          %p
+            להזמנת התכשיט עם הקריסטלים הבאים סמן את המשבצת המתאימה:
+          %br  
+        .row
+          - @jewelry.jewelry_crystals.each do |jewelry_crystal|
+            - if jewelry_crystal.crystal_id != @crystal_id
+              .col-sm-3.pull-right
+                .medicinal-herb-col
+                  = link_to  jewelry_crystal_path(jewelry_crystal) do  
+                    .image
+                      %img.img-responsive{:alt => "crystal", :src => jewelry_crystal.crystal.image.big_thumb}/ 
+                    %span
+                      אותו התכשיט עם #{jewelry_crystal.crystal.name} - #{display_price(jewelry_crystal.price)}           
+        %br
+        * ניתן להזמין את התכשיט הרפואי עם כל קריסטל אשר נמצא באינדקס הקריסטלים אשר באתר. אנה שלכו מייל עם הקריסטל המבוקש ונחזור אליכם בהקדם.                     
+        %br
+      / Manufacturer Start
+      / Manufacturer Ends
+      / Left Ends  
+      .to-all-products
+        = link_to jewelries_path do
+          %span לקטלוג תכשיטים
+          %i.fa.fa-book
+    / Right Starts
+    .col-sm-3.images-block      
+      %img.img-responsive.thumbnail{:alt => "Image", :src => @jewelry.image}/  
+      .options 
+      = form_tag shopping_cart_items_path, method: :post, class: "form-horizontal", id: "add-jewelry-#{@jewelry.id}" do
+        .form-group
+          .row 
+            .col-xs-7
+              = button_tag nil, class: 'btn btn-cart' do
+                הוסף לסל
+                %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png' } 
+            .col-xs-3   
+              = hidden_field_tag 'sellable_type', @sellable_type  
+              = hidden_field_tag 'sellable_id', @sellable_id
+              = text_field_tag 'qty', 1, class: 'form-control', min: 1
+            .col-xs-2.no-padding
+              %label.control-label.text-left{:for => "input-quantity"} כמות:               
+      / Available Options Ends 
+    / Right Ends
+  / Right Ends
+  / jewelry Info Ends
+/ Primary Content Ends
+/ Sidebar Ends
+/ Main Container Ends

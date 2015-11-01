@@ -1,0 +1,78 @@
+.content-box
+  .page-box.medicinal-herb-container
+    .row
+      / Herb images start
+      .col-sm-3
+        .image
+          %img.img-responsive{:alt => "product", :src => "/images/herbs-imgs/rosemary.JPG"}/
+          פריחה של רוזמרין
+        .image
+          %img.img-responsive{:alt => "product", :src => "/images/herbs-imgs/rosemary1.jpg"}/ 
+          רוזמרין רפואי 
+      / Herb images ends
+      / Herbs Description Start
+      .col-sm-9
+        .header 
+          רוזמרין רפואי
+        .main-info  
+          %span.latin-name Rosmarinus officinalis
+          %span :שם לטיני
+        %p  
+          מקורו של הצמח, המשתייך למשפחת השפתניים, במזרח התיכון ובדרום צרפת והוא נפוץ כגידול מסחרי בארצות רבות.
+          אגדות רבות נפוצו על אודותיו של צמח רב שנתי זה, הידוע גם כ"צמח הזיכרון". מלומדים יוונים נהגו להניח מעט רוזמרין בשערם בזמן למידה, לצורך שיפור יכולת הריכוז. הצמח הריחני הוחלף בין חברים כסמל לנאמנות ואף נזרק על קברם של מתים. במצרים העתיקה נקברו הפרעונים עם הצמח.בארצות שונות רווחה האמונה כי לרוזמרין כוחות מאגיים ויכולת לגרש שדים. הצמח נשרף בחדרי חולים כמחטא והשתמשו בו בניסיון להדוף מגפות.
+          השמן הנדיף הינו המרכיב החשוב בצמח, והוא מכיל Rosemary Camphor. לחומר זה מיוחסת השפעה כללית מחזקת על מחזור הדם ועל מערכת העצבים, בעיקר בחלקיה האחראים על עצבוב כלי-הדם.
+          ברפואת הצמחים המודרנית נחשב הרוזמרין לבעל עוצמת פעילות בינונית, והוא מותווה בעיקר למצבים של חולשה הנזקקים לתמיכה ולהמרצה 
+        .data-title
+          חומרים פעילים  
+        %ul
+          %li  
+            = link_to nil, 'rosmarinic acid'
+          %li 
+            = link_to nil, 'luteolin, cirsimarin'
+        %br/
+        .data-title פעילות רפואית
+        %p
+          מחזק, מחזק\מזין מערכת העצבים, מחזק לב, מייזע, ממריץ\מחמם, ממריץ קיבה, מעורר, מעלה לחץ דם, משפר זרימת דם היקפית. 
+      .col-sm-12  
+        .data-title הרמב"ם 
+        %p
+          מקורו של הצמח, המשתייך למשפחת השפתניים, במזרח התיכון ובדרום צרפת והוא נפוץ כגידול מסחרי בארצות רבות.
+          אגדות רבות נפוצו על אודותיו של צמח רב שנתי זה, הידוע גם כ"צמח הזיכרון". מלומדים יוונים נהגו להניח מעט רוזמרין בשערם בזמן למידה, לצורך שיפור יכולת הריכוז. הצמח הריחני הוחלף בין חברים כסמל לנאמנות ואף נזרק על קברם של מתים. במצרים העתיקה נקברו הפרעונים עם הצמח.בארצות שונות רווחה האמונה כי לרוזמרין כוחות מאגיים ויכולת לגרש שדים. הצמח נשרף בחדרי חולים כמחטא והשתמשו בו בניסיון להדוף מגפות.  
+        .data-title מחקרים
+        = link_to nil, 'rosemary_research.pdf'  
+      / Herbs Description End            
+/ Medisinal Herb End 
+/ Related Products Starts
+.product-info-box
+  .content-box
+    %h3.heading מוצרים
+    / Products Row Starts
+    .row
+      - 6.times do
+        .col-md-4.col-sm-4.col-xs-12.no-padding
+          .product-col
+            .row
+              .col-md-7
+                .caption
+                  %h4
+                    %a{:href => "product.html"} טחינה אורגנית
+                  .price
+                    %span.price-new ש"ח27  
+                  .description
+                    %p
+                      100% טחינה אתיופית אורגנית משומשום מלא חצי מונבט
+                %form.form-horizontal
+                  .form-group
+                    .row
+                      .col-xs-6.col-xs-offset-2
+                        %button.btn.btn-cart{:type => "button"}
+                          %i.fa.fa-shopping-cart
+                          הוסף לעגלה
+                      .col-xs-3
+                        %input#input-quantity.form-control{:name => "quantity", :size => "2", :type => "text", :value => "1"}/
+              .col-md-5
+                .image
+                  %img.img-responsive{:alt => "product", :src => "/images/product-imgs/1.jpg"}/
+    / Products Row Ends
+/ Related Products Ends   
+/ Main Container Ends

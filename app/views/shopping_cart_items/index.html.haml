@@ -1,0 +1,58 @@
+/ Shopping Cart Table Starts
+- if shopping_cart.empty?
+  %h2.main-heading.text-center
+    עגלת הקניות שלך ריקה..
+- else
+  .row
+    .col-sm-12.col-md-10.pull-right
+      %h2.main-heading.text-center
+        עגלת הקניות
+      .table-responsive.shopping-cart-table
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td.text-center{:width => "20%"}
+              %td.text-center{:width => "30%"}
+                שם המוצר
+              %td.text-center{:width => "12%"}
+                מחיר ליחידה
+              %td.text-center{:width => "19%"}
+                כמות
+              %td.text-center{:width => "12%"}
+                סכ"ה
+              %td.text-center{:width => "5%"}
+                מחק
+          %tbody
+            - shopping_cart.each do |shopping_cart_item|
+              = form_tag shopping_cart_item_path(shopping_cart_item.id) , method: :patch do    
+                %tr
+                  %td.text-center
+                    = link_to shopping_cart_item.sellable do
+                      %img.shopping-cart-table-img{:alt => shopping_cart_item.name, :src => shopping_cart_item.image.big_thumb, :title => "Product Name"}/
+                  %td.text-center
+                    = link_to shopping_cart_item.name, shopping_cart_item.sellable
+                  %td.text-center
+                    #{display_price(shopping_cart_item.price)}
+                  %td.text-center
+                    .input-group.btn-block
+                      .row
+                        .col-sm-7.col-xs-12.pull-right
+                          = number_field_tag 'qty', shopping_cart_item.qty, class: 'form-control ensure-min-width', min: 1, size: '1'
+                          = hidden_field_tag 'sellable_type', shopping_cart_item.sellable_type
+                        .col-sm-5.col-xs-12.no-padding 
+                          = button_tag nil, class: 'btn btn-update tool-tip'do
+                            עדכן
+                  %td.text-center
+                    #{display_price(shopping_cart_item.total_price)}
+                  %td.text-center
+                    = link_to shopping_cart_item_path(shopping_cart_item.id, sellable_type: shopping_cart_item.sellable_type ), method: :delete,class: 'btn btn-warning tool-tip' do
+                      %i.fa.fa-times-circle
+          %tfoot
+            %tr
+              %td.text-left{:colspan => "4"}
+                %strong סכ"ה להזמנה:
+              %td.text-right{:colspan => "2"}
+                #{display_price(total_bill)}
+        = link_to 'המשך לקופה', checkout_path, class: 'btn shopping-cart-checkout-btn pull-left'    
+    / Shopping Cart Table Ends
+    / Main Container Ends

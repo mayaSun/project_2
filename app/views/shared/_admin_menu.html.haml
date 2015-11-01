@@ -1,0 +1,46 @@
+.admin-menu
+  .hidden-xs.hidden-sm
+    %h3.side-heading ניהול אתר
+    .list-group
+      = link_to admin_orders_path, class: (nav_active(admin_orders_path) + ' list-group-item') do
+        %i.fa.fa-bell{:title => "Orders"}
+        %span הזמנות
+      = link_to admin_stock_path, class: (nav_active(admin_stock_path) + ' list-group-item') do 
+        %i.fa.fa-flag{:title => "Stock"} 
+        %span ניהול מלאי
+      = link_to admin_users_path, class: (nav_active(admin_users_path) + ' list-group-item') do
+        %i.fa.fa-user{:title => "Users"}
+        %span לקוחות
+      = link_to 'מוצרים', admin_products_path , class: (nav_active(admin_products_path) + ' list-group-item')
+      = link_to 'שמנים אתריים', admin_essential_oils_path , class: (nav_active(admin_essential_oils_path) + ' list-group-item')
+      = link_to 'תכשיטים', admin_jewelries_path , class: (nav_active(admin_jewelries_path) + ' list-group-item')
+      = link_to 'קטגוריות', admin_categories_path, class: (nav_active(admin_categories_path) + ' list-group-item')
+      = link_to 'קריסטלים', admin_crystals_path , class: (nav_active(admin_crystals_path) + ' list-group-item')
+      = link_to 'צמחי מרפא', admin_medicinal_herbs_path, class: (nav_active(admin_medicinal_herbs_path) + ' list-group-item')
+      = link_to 'בעיות רפואיות', admin_medical_activities_path, class: (nav_active(admin_medical_activities_path) + ' list-group-item')
+      = link_to 'חומרים פעילים', admin_active_ingredients_path, class: (nav_active(admin_active_ingredients_path) + ' list-group-item')
+      = link_to 'מרשמים עתיקים', admin_recipes_path, class: (nav_active(admin_recipes_path) + ' list-group-item')
+      / Nav Header Starts
+  .visible-xs-block.visible-sm-block    
+    .navbar-header.admin-menu-toggle-button
+      אדמיניסטרציה
+      %button.btn.btn-navbar.navbar-toggle{"data-target" => ".navbar-admin-collapse", "data-toggle" => "collapse", :type => "button"}
+        %i.fa.fa-bars
+        %span.sr-only Toggle Navigation
+    / Nav Header Ends
+    / Navbar Cat collapse Starts
+    .collapse.navbar-collapse.navbar-admin-collapse
+      .list-group
+        = link_to admin_orders_path, class: (nav_active(admin_orders_path) + ' list-group-item') do
+          %i.fa.fa-bell{:title => "Orders"}
+          %span הזמנות
+        = link_to admin_stock_path, class: (nav_active(admin_stock_path) + ' list-group-item') do 
+          %i.fa.fa-flag{:title => "Stock"}
+          %span ניהול מלאי
+        = link_to admin_users_path, class: (nav_active(admin_users_path) + ' list-group-item') do
+          %i.fa.fa-user{:title => "Users"}
+          %span לקוחות
+        = link_to 'מוצרים', admin_products_path , class: (nav_active(admin_products_path) + ' list-group-item')
+        = link_to 'צמחי מרפא', admin_medicinal_herbs_path, class: (nav_active(admin_medicinal_herbs_path) + ' list-group-item')
+        = link_to 'קטגוריות', admin_categories_path, class: (nav_active(admin_categories_path) + ' list-group-item')
+  / Navbar Cat collapse Ends

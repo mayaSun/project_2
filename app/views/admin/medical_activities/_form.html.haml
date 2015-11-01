@@ -1,0 +1,15 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title
+      = @medical_activity.new_record? ? 'הוסף בעיה רפואית' : '  עדכן בעיה רפואית'
+  .panel-body    
+    = bootstrap_form_for [:admin, @medical_activity], layout: :horizontal do |f|
+      .col-sm-5.col-sm-offset-7.col-xs-12
+        .admin-product-form-row
+          = f.text_field :name, label: '*שם:', placeholder: 'שם הבעיה', label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"
+        .admin-product-form-row
+          = f.text_field :english_name, label: '*שם באנגלית:', placeholder: 'שם באנגלית', label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"
+      = f.text_area :description, label: '*תיאור:', label_col: "col-sm-1.col-sm-push-11", control_col: "col-sm-11", rows: '4' 
+      = f.collection_check_boxes :medicinal_herb_ids, MedicinalHerb.all, :id, :name, label: 'צמחי מרפא:', inline: true, label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10" 
+      .col-sm-12.col-xs-12  
+        = f.submit @medical_activity.new_record? ? 'הוסף' : 'עדכן', class: "btn btn-add" , id: 'medical_activity-form-submit'

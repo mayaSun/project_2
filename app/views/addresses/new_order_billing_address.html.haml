@@ -1,0 +1,14 @@
+%section
+  .row
+    .col-sm-6        
+      #cart.btn-group.btn-block
+        .dropdown-menu{ style: 'display:block;'}
+          = render 'shopping_cart_items/shopping_cart_summary'
+    .col-sm-6
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title כתובת לחשבונית
+        .panel-body
+          / Registration Form Starts
+          = render '/addresses/form', :@address => @billing_address, zone: 'billing_address'
+          %input{:form => "new_address", :type => "submit", :value => 'המשך לתשלום', class: "btn btn-update"}/ 

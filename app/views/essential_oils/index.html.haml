@@ -1,0 +1,32 @@
+.content-box
+  .row.product-info
+    / Left Starts
+    .col-sm-4.images-block
+      %p
+        %img.img-responsive.thumbnail{:alt => "Image", :src => '/images/essential_oils.jpg' }  
+    .col-sm-8.product-details
+      / Product Name Starts
+      .product-header
+        %h2 
+          שמנים אתריים זה העיניין אצלנו             
+      / Category Name Ends
+      %p 
+        הקבוצה מפיקה שמנים אתריים ברמה גבוהה ועל טהרת צמחי ארץ ישראל, וזאת מזה כ - 18 שנה. ולמעשה הינה הקבוצה היחידה אשר מפיקה שמנים אתריים בכמות כזאת בישראל בפרט ובמזרח התיכון בכלל. חומר הגלם אשר אנו משתמשים בו מגיע מהערבה בדרום ועד למושב נוב בצפון חלקות בשמים נוספות נמצאות באזור כפר אוריה, וממכלול זה מופק השמן אשר נמצא בחברתנו.
+      %p
+        יש לשים לב ולקרוא הרבה בטרם השימוש בשמנים אתריים וזאת מכיוון שחומרים אלו הינם עוצמתיים ומרוכזים מאוד. אנו תקווה שתופק תועלת והקלה למשתמשים בשמנים אלו.
+      %p
+        את השמנים האתרים יש למהול בשמני נשא כגון: זרעי ענבים, שמן שקדים, ושמן חוחובה, וזאת בריכוז של 10% שמן אתרי בבקבוק (-:.
+      %h3  
+        כל השמנים שנמכרים בחברתינו הינם לא מהולים וללא שום תוספות. 
+/ Related jewelrys Starts
+/ Related essential_oils Starts
+.product-info-box
+  .content-box
+    %h3.heading השמנים שלנו לפי סדר ה א-ב
+    / essential_oils Row Starts
+    .row
+      - @essential_oils.each do |essential_oil|
+        .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
+          = render 'essential_oil', :essential_oil => essential_oil
+    / essential_oils Row Ends
+/ Related essential_oils Ends

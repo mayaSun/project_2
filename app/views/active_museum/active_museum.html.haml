@@ -1,0 +1,21 @@
+.information-page-content  
+  .row
+    .col-md-9.col-sm-8  
+      / Slider Section Starts
+      .slider
+        #main-carousel.carousel.slide{"data-ride" => "carousel"}
+          / Wrapper For Slides Starts
+          .carousel-inner
+            .item.active
+              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide1-img.jpg"}/
+            .item
+              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide2-img.jpg"}/
+            .item
+              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide3-img.jpg"}/   
+            .item
+              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide4-img.jpg"}/
+            .item
+              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide5-img.jpg"}/        
+          / Wrapper For Slides Ends
+    .col-md-3.col-sm-4
+      = render 'active_museum_menu'

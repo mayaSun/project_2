@@ -1,0 +1,13 @@
+#accordion2.accordion
+  - @recipes.each do |recipe|
+    .accordion-group
+      .accordion-heading
+        %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse_#{recipe.id}"}
+          = recipe.title
+      .accordion-body.collapse{:id => "collapse_#{recipe.id}"} 
+        .accordion-inner
+          .row
+            .col-sm-8.pull-right
+              = simple_format(recipe.text)  
+            .col-sm-4.pull-right 
+              %img.img-responsive.thumbnail{:alt => "Image", :src => recipe.image } 

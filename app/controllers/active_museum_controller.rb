@@ -1,0 +1,3 @@
+class ActiveMuseumController <ApplicationController
+
+end

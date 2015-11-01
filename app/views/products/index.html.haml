@@ -1,0 +1,11 @@
+/ Related Products Starts
+.product-info-box
+  .content-box
+    %h3.heading כל המוצרים שלנו לפי סדר ה א-ב
+    / Products Row Starts
+    .row
+      - @products.each do |product|
+        .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
+          = render 'product', :product => product
+    / Products Row Ends
+/ Related Products Ends

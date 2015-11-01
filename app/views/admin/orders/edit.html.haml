@@ -1,0 +1,126 @@
+%section
+  .row
+    .col-sm-6.col-xs-12
+      .admin-table-title  
+        כתובת למשלוח
+      .order-col
+        %ul.list-unstyled
+          %li
+            %span.field-name
+              שם פרטי:
+            %span.field    
+              = @order.shipping_address.first_name 
+          %li
+            %span.field-name
+              שם משפחה:
+            %span.field    
+              = @order.shipping_address.last_name  
+          %li
+            %span.field-name
+              כתובת שורה 1:
+            %span.field    
+              = @order.shipping_address.address_line1
+          %li
+            %span.field-name
+              כתובת שורה 2:
+            %span.field    
+              = @order.shipping_address.address_line2
+          %li
+            %span.field-name
+              עיר:
+            %span.field    
+              = @order.shipping_address.city       
+          %li
+            %span.field-name
+              ארץ:
+            %span.field{:dir => "rtl"}   
+              = display_country(@order.shipping_address.country_code)
+          %li
+            %span.field-name
+              מדינה:
+            %span.field    
+              = display_state(@order.shipping_address.country_code, @order.shipping_address.state_code)
+          %li
+            %span.field-name
+              מיקוד:
+            %span.field    
+              = @order.shipping_address.postal_code             
+          %li
+            %span.field-name
+              טלפון:
+            %span.field    
+              = @order.shipping_address.phone_number
+          %li
+            %span.field-name
+              אי מייל:
+            %span.field    
+              = @order.shipping_address.email
+          - if @order.status == 'Paid' 
+            %li
+              .field
+                * הזמנה זו נעשתה ב: #{display_date(@order.updated_at)} 
+            %li
+              .field   
+                אנא מלא לאחר המשלוח:
+            = form_tag  admin_order_path(@order), method: :patch do
+              %li
+                .row.input-row
+                  .col-xs-5.pull-right
+                    .field-name
+                      מספר אישור:
+                  .col-xs-5.pull-right
+                    = text_field_tag  :confirmation_number, nil, class: 'form-control'
+              %li    
+                .row    
+                  .col-xs-5.pull-right
+                    .field-name
+                      מספר למעקב:
+                  .col-xs-5.pull-right
+                    = text_field_tag :tracking_number, nil, class: 'form-control'                 
+                .row  
+                  .col-xs-2
+                    = submit_tag 'עדכן', class: 'btn btn-update tool-tip', id: 'submit-order-delivery'
+          - else
+            %li
+              .field
+                * ההזמנה נשלחה ב:  #{display_date(@order.updated_at)}
+            %li
+              %span.field-name
+                מספר אישור:
+              %span.field
+                = @order.confirmation_number
+            %li     
+              %span.field-name
+                מספר למעקב:
+              %span.field
+                = @order.tracking_number        
+    .col-sm-6.col-xs-12
+      .admin-table-title  
+        מוצרים למשלוח  
+      .table-responsive.admin-table
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td.text-center
+                תמונה
+              %td.text-center
+                מוצר
+              %td.text-center
+                כמות
+              %td.text-center
+                שולם
+          %tbody
+            - @order.shopping_cart_items.each do |shopping_cart_item| 
+              %tr
+                %td.text-center
+                  %img.img-responsive{:alt => "image", :src => shopping_cart_item.image.big_thumb, :title => "image"}/
+                %td.text-center
+                  = link_to shopping_cart_item.name, product_path(shopping_cart_item.sellable) 
+                %td.text-center 
+                  x #{shopping_cart_item.qty}
+                %td.text-center 
+                  #{display_price(shopping_cart_item.price)}
+    %br
+      .pull-left
+        = link_to 'חזור לאינדקס הזמנות', admin_orders_path, class: 'btn btn-update' 
+

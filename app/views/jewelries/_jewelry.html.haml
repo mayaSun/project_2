@@ -1,0 +1,9 @@
+.product-col
+  = link_to jewelry_path(jewelry) do
+    .image
+      %img.img-responsive{:alt => "jewelry", :src => jewelry.image}/
+  .caption.text-center.short-description
+    = link_to jewelry.name , jewelry_path(jewelry)
+    .price
+      %span.price-new 
+        = display_price(jewelry.price) 

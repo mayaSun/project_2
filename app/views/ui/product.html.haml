@@ -1,0 +1,108 @@
+/ Product Info Starts
+.content-box
+  .row.product-info
+    / Left Starts
+    .col-sm-9.product-details
+      / Product Name Starts
+      .product-header
+        %h2 טחינה אתיופית
+        / Product Name Ends
+        / Price Starts
+        .price{:dir => "rtl"} 
+          %span.price-new 28ש"ח
+        / Price Ends
+        %p טחינה אתיופית משומשום מלא טרום מונבט
+      %ul.list-unstyled.manufacturer
+        %li
+          %span מזון אורגני
+          %span :קטגוריה  
+        %li
+          %strong.label.label-success במלאי
+      / Manufacturer Start  
+      / Tabs Starts
+      .tabs-panel.panel-smart
+        / Nav Tabs Starts
+        %ul.nav.nav-tabs
+          %li.active
+            %a{:href => "#tab-description", "data-toggle" => "tab"} תאור
+          %li
+            %a{:href => "#tab-category-description", "data-toggle" => "tab"} רכיבים 
+          %li
+            %a{:href => "#tab-sacred_symbols", "data-toggle" => "tab"} שימוש
+        / Nav Tabs Ends
+        / Tab Content Starts
+        .tab-content.clearfix
+          / Description Starts
+          #tab-description.tab-pane.active
+            הטחינה האתיופית של משק לין מיוצרת משומשום מלא, מזן אתיופי מובחר. השומשום עובר תהליך קצר של טרום הנבטה ולאחר מכן ייבוש וטחינה באבן רייחים בכבישה קרה. הטחינה עשירה מאוד במינרלים חיוניים כמו סידן, ברזל, מגנזיום ואשלגן. הטחינה עשירה בסיבים תזונתיים ובנוגדי חמצון. בטחינה גולמית נוצרת עם הזמן הפרדה בין שמן השומשום לחומר היבש ולכן מומלץ לערבב לפני השימוש.      
+          / Description Ends
+          / Category description Starts
+          #tab-category-description.tab-pane
+            %p
+              100% שומשום אתיופי חצי מונבט
+          / Category Description Ends
+          / Symbol Starts
+          #tab-sacred_symbols.tab-pane
+            ערבב עם מיים, שום ולימון  
+          / Symbol Ends
+        / Tab Content Ends
+      / Tabs Ends           
+      / Manufacturer Ends
+    / Left Ends  
+    / Right Starts
+    .col-sm-3.images-block
+      %p
+        %img.img-responsive.thumbnail{:alt => "Image", :src => "/images/product-imgs/1.jpg"}/  
+      .options
+        %form.form-horizontal
+          .form-group
+            .row
+              .col-xs-6
+                %button.btn.btn-cart{:type => "button"}
+                  %i.fa.fa-shopping-cart
+                  הוסף לעגלה
+              .col-xs-3
+                %input#input-quantity.form-control{:name => "quantity", :size => "2", :type => "text", :value => "1"}/
+              .col-xs-3.no-padding
+                %label.control-label.text-left{:for => "input-quantity"} :כמות  
+
+      / Available Options Ends
+    / Right Ends
+  / Right Ends
+  / product Info Ends
+/ Related Products Starts
+.product-info-box
+  .content-box
+    %h3.heading מוצרים דומים
+    / Products Row Starts
+    .row
+      - 6.times do
+        .col-md-4.col-sm-4.col-xs-12.no-padding
+          .product-col
+            .row
+              .col-md-7
+                .caption
+                  %h4
+                    %a{:href => "product.html"} טחינה אורגנית
+                  .price
+                    %span.price-new ש"ח27  
+                  .description
+                    %p
+                      100% טחינה אתיופית אורגנית משומשום מלא חצי מונבט
+                %form.form-horizontal
+                  .form-group
+                    .row
+                      .col-xs-6.col-xs-offset-2
+                        %button.btn.btn-cart{:type => "button"}
+                          %i.fa.fa-shopping-cart
+                          הוסף לעגלה
+                      .col-xs-3
+                        %input#input-quantity.form-control{:name => "quantity", :size => "2", :type => "text", :value => "1"}/
+              .col-md-5
+                .image
+                  %img.img-responsive{:alt => "product", :src => "/images/product-imgs/1.jpg"}/
+    / Products Row Ends
+/ Related Products Ends
+/ Primary Content Ends
+/ Sidebar Ends
+/ Main Container Ends

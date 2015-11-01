@@ -1,0 +1,9 @@
+.header
+  המוזאון הפעיל  
+.list-group
+  = link_to 'חלקות לעיבוד', plots_path, class: (nav_active(plots_path) + ' list-group-item')
+  - if false
+    = link_to 'תצוגה', nil, class: (nav_active(my_account_path) + ' list-group-item')
+  = link_to 'ריבוי צמחים', plant_breeding_path, class: (nav_active(plant_breeding_path) + ' list-group-item')
+  = link_to 'הספקת והשרשת יחורים', cutting_path, class: (nav_active(cutting_path) + ' list-group-item')
+  = link_to 'בית חולים לצמחים', plants_hospital_path, class: (nav_active(plants_hospital_path) + ' list-group-item')

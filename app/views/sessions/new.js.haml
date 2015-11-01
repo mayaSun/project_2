@@ -1,0 +1,5 @@
+m = $('#user-modal');
+m.html("#{j (render 'form')}");
+$("#open-modal").click();
+$("#open-modal").off('click');
+$("#open-modal").prop('disabled', true);

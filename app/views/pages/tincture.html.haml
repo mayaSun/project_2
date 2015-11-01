@@ -1,0 +1,50 @@
+.row
+  / Medicinal Herbs Index Starts
+  .col-sm-12
+    .content-box
+      .row.product-info
+        / Left Starts
+        .col-md-4.col-sm-3.images-block
+          %p
+            %img.img-responsive.thumbnail{:alt => "Image", :src => '/images/tinctures.jpg' }  
+        .col-md-8.col-sm-9.product-details
+          / Product Name Starts
+          .product-header
+            %h2 
+              טינקטורות             
+          / Category Name Ends
+          %p
+            טינקטורה מה היא? על מנת לשמר את תכונותיו הרפואיות של הצמח למשך כל השנה אנו מכניסים את צמחי המרפא בעונת גדילתם לתערובת של אלכוהול המופק מרימונים ביחד עם מים מזוקקים המופקים במפעלינו למשך זמן של כשישה שבועות. כך סופגת התערובת את הכח הרפואי של הצמח ולמעשה משמרת אותו לזמן בלתי מוגבל. וזה על קצה המזלג פירוש המילה טינקטורה.
+          %p
+            אנו משתדלים להפיק טינקטורה של כל אחד ואחד מצמחי המרפא של ארץ ישראל. הכמויות שאנו מגדלים ממגוון מצחי המרפא הן מועטות ויש להתעדכן לפני ההזמנה. מצד שני אנו ערוכים להפיק כל טנקטורה בזמנה וזו על פי הזמנה מראש.לבדיקת כמותן וזמינותן של הטינקטורות במלאי ולשם ביצוע ההזמנה יש להתקשר למוקד שרות לקוחות, או לשלוח מייל ל: holy-land-herbs@gmail.com 
+          %p 
+            אנו משתדלים להפיק טינקטורה של כל אחד ואחד מצמחי המרפא של ארץ ישראל. הכמויות שאנו מגדלים ממגוון מצחי המרפא הן מועטות ויש להתעדכן לפני ההזמנה.
+          %p
+            מצד שני אנו ערוכים להפיק כל טנקטורה בזמנה וזו על פי הזמנה מראש.
+          %p
+            לבדיקת כמותן וזמינותן של הטינקטורות במלאי ולשם ביצוע ההזמנה יש להתקשר למוקד שרות לקוחות בין השעות 9:00 - 12:00, או לשלוח מייל ל: holy-land-herbs@gmail.com
+      %br     
+      .medicinal-herbs-list
+        .header
+          רשימת טינקטורות
+        .row
+          /* First third of Medicinal Herbs list*/
+          .col-xs-12.col-sm-3.pull-right 
+            - @medicinal_herbs_1.each do |medicinal_herb|
+              = medicinal_herb.name 
+              %br
+          /* Secound third of Medicinal Herbs list*/     
+          .col-xs-12.col-sm-3.pull-right
+            - @medicinal_herbs_2.each do |medicinal_herb|
+              = medicinal_herb.name 
+              %br
+          .col-xs-12.col-sm-3.pull-right
+            - @medicinal_herbs_3.each do |medicinal_herb|
+              = medicinal_herb.name 
+              %br     
+          /* Last third of Medicinal Herbs list*/
+          .col-xs-12.col-sm-3.pull-right
+            - @medicinal_herbs_4.each do |medicinal_herb|
+              = medicinal_herb.name 
+              %br     
+/ Medicinal Herbs Index Starts

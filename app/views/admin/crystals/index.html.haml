@@ -1,0 +1,12 @@
+.row 
+  .col-md-12   
+    .panel.panel-smart
+      %h3.panel-title
+        = link_to 'הוסף קריסטל לאתר +' , new_admin_crystal_path  
+.product-info-box
+  .content-box
+    / Crystals Row Starts
+    .row
+      - @crystals.each do |crystal| 
+        .col-md-4.col-sm-4.col-xs-12.no-padding.pull-right
+          = render 'crystal', crystal: crystal

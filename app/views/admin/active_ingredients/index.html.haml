@@ -1,0 +1,19 @@
+.row 
+  .col-md-12   
+    .panel.panel-smart
+      %h3.panel-title
+        = link_to 'הוסף חומר פעיל לאתר +' , new_admin_active_ingredient_path  
+.product-info-box
+  .content-box
+    / active_ingredients Row Starts
+    .medicinal-herbs-list
+      .row
+        /* Last half of Medicinal herbs list*/
+        .col-sm-6.pull-right
+          - @active_ingredients_1.each do |active_ingredient|
+            = render 'active_ingredient', active_ingredient: active_ingredient     
+        /* first half of Medicinal herbs list*/     
+        .col-sm-6
+          - @active_ingredients_2.each do |active_ingredient|
+            = render 'active_ingredient', active_ingredient: active_ingredient 
+         

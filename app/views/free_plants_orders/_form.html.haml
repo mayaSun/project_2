@@ -1,0 +1,40 @@
+/ Registration Form Starts
+= bootstrap_form_for  @address, url: register_to_get_2_plants_path, remote: true, layout: :horizontal , html: {id: :new_address } do |f|
+  .panel-title
+    בחר באילו 2 שתילים הינך מעוניין ע"פ הרשימה שבמלאי
+  %br 
+  .plants-check-box
+    .row
+      - ['רוזמרין','לבנדר','אלוורה'].each do |plant|
+        .col-md-2.pull-right
+          = check_box_tag "plants[]", plant, nil, class: 'checkbox' 
+          %span         
+            .image
+              %img.img-responsive{:alt => "plant", :src => '/images/plant.jpg'}/
+          = plant 
+  %br
+  %br
+  .panel-title
+    פרטים למשלוח הצמחים
+  %br    
+  .row
+    .col-md-5.col-sm-6.pull-right
+      = f.text_field :first_name, label: '*שם פרטי:', placeholder: 'שם פרטי', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+      = f.text_field :last_name, label:'*שם משפחה:', placeholder: 'שם משפחה', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+      = f.text_field :address_line1, label: '*כתובת:',placeholder: 'כתובת', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+      = f.text_field :address_line2, label: 'שורה 2:', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+      = f.text_field :city, label:'*עיר:',placeholder: 'עיר', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+      = f.text_field :postal_code, label:'*מיקוד:',placeholder: 'מיקוד', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+      = f.text_field :phone_number, label:'*טלפון:',placeholder: 'טלפון', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+      = f.text_field :email, label:'*אי מייל:',placeholder: 'דואר אלקטרוני', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"  
+  .panel-title
+    דרך הגעת השתילים
+  %br  
+  = radio_button_tag "delivery_method", 'delivery', true
+  אני מעוניין שיגיע אלי הביתה אחד מאנשי החברה
+  %br
+  = radio_button_tag "delivery_method", 'post mail', false
+  אני מעוניין במשלוח בדואר גוביינא
+  %br
+  %br
+  %input{:form => "new_address", :type => "submit", :value => 'הכנס לרשימת המתנה', remote: true, class: "btn btn-update"}/ 

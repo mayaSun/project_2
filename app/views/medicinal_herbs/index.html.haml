@@ -1,0 +1,22 @@
+.content-box
+  .row.product-info
+    / Left Starts
+    .col-sm-4.images-block
+      %p
+        %img.img-responsive.thumbnail{:alt => "Image", :src => '/images/medicinal-herbs.JPG' }  
+    .col-sm-8.product-details
+      / Product Name Starts
+      .product-header
+        %h2 
+          צמחי מרפא              
+      / Category Name Ends
+      %p 
+        אנו מספקים אך ורק צמחי מרפא מובחרים, מהם מופקות תמציות לטיפול במגוון בעיות ומחלות. כל הצמחים גדלים ללא ריסוס כלל, ותהליך הפקת המוצרים השלם מתבצע על ידינו ותחת פיקוח שלנו.
+  .medicinal-herbs-list
+    .header
+      אינדקס צמחים לפי א-ב
+    %hr
+    .row
+      - @medicinal_herbs.each do |medicinal_herb|
+        .col-md-2.col-sm-3.col-xs-6.no-padding.pull-right
+          = render 'medicinal_herb_small', :medicinal_herb => medicinal_herb

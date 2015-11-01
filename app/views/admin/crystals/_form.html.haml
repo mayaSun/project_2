@@ -1,0 +1,32 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title
+      = @crystal.new_record? ? 'הוסף קריסטל חדש לאתר' : '  עדכן את הפרטים של הקריסטל'
+  .panel-body
+    = bootstrap_form_for [:admin, @crystal], layout: :horizontal do |f|
+      .col-sm-5.col-sm-offset-7.col-xs-12
+        .admin-product-form-row
+          = f.text_field :name, label: '*שם:', placeholder: 'שם הקריסטל', label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"
+        .admin-product-form-row
+          = f.text_field :english_name, label: '*שם באנגלית:', placeholder: 'שם הקריסטל', label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"  
+      .col-md-12.col-xs-12
+        .row
+          .col-sm-5.pull-right
+            .admin-product-form-row
+              = f.file_field :image, label: 'תמונה:',label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"
+          .col-sm-7.pull-right
+            .admin-product-form-row
+              = f.text_field :image_link, label: 'לינק לאתר שממנו התמונה:', placeholder: 'לינק', label_col: "col-sm-5.col-sm.push-6", control_col: "col-sm-6" 
+      .col-sm-5.col-sm-offset-7.col-xs-12  
+        .admin-product-form-row
+          = f.text_field :price, label: 'מחיר בשקלים:', placeholder: "המחיר בשקלים",label_col: "col-sm-4.col-sm.push-8", control_col: "col-sm-8"         
+      .col-sm-5.col-sm-offset-7.col-xs-12  
+        .admin-product-form-row
+          = f.text_field :hardness, label: 'קשיות:', placeholder: "המחיר בשקלים",label_col: "col-sm-4.col-sm.push-8", control_col: "col-sm-8"        
+      = f.text_area :chemical_formula, label: 'נוסחה כימית:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '1' , class: 'english' 
+      = f.text_area :qualities, label: 'תכונות:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '3'
+      = f.text_area :use_instructions, label: 'הוראות שימוש:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '3'  
+      = f.text_area :warnings, label: 'אזהרות:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '1' 
+      .col-sm-12.col-xs-12  
+        = f.submit @crystal.new_record? ? 'הוסף קריסטל' : 'עדכן פרטים', class: "btn btn-add" , id: 'crystal-form-submit'
+

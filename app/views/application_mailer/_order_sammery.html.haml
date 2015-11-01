@@ -1,0 +1,48 @@
+%h2.main-heading.text-center
+  סיכום הזמנה
+.table-responsive.shopping-cart-table
+  %table.table.table-bordered
+    %thead
+      %tr
+        %td.text-center{:width => "25%"}
+          שם המוצר
+        %td.text-center{:width => "35%"}
+          מחיר ליחידה
+        %td.text-center{:width => "15%"}
+          כמות
+        %td.text-center{:width => "25%"}
+          סכ"ה
+    %tbody
+      - @order.shopping_cart_items.each do |shopping_cart_item|  
+        %tr
+          %td.text-center
+            = link_to shopping_cart_item.name, shopping_cart_item.sellable_type == 'Product' ? product_url(shopping_cart_item.sellable) : shopping_cart_item.sellable_type == 'EssentialOil' ? essential_oil_url(shopping_cart_item.sellable) : jewelry_url(shopping_cart_item.sellable)
+          %td.text-center
+            #{shopping_cart_item.price}ש"ח
+          %td.text-center
+            = shopping_cart_item.qty
+          %td.text-center
+            #{shopping_cart_item.total_price}ש"ח
+    %tfoot
+      %tr
+        %td.text-left{:width => "25%", :colspan => "4"}
+          %strong סכ"ה להזמנה:
+          %span
+            #{@order.total_bill}ש"ח
+%h2.main-heading.text-center
+  הכתובת למשלוח
+.name    
+  = @order.shipping_address.first_name + ' ' + @order.shipping_address.last_name
+.address_line
+  = @order.shipping_address.address_line1
+.address_line  
+  = @order.shipping_address.address_line2 
+.address_line   
+  = @order.shipping_address.city + ' ' + @order.shipping_address.postal_code
+.address_line
+  ישראל
+%h3.main-heading.text-center
+  במידה והינך מוצא טעות כל שהיא בפרטים אנא צור איתנו קשר בהקדם האפשרי.
+%h3 תודה, עשבי ארץ הקודש
+%p
+  holylendherbs@gmail.com

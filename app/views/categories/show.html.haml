@@ -1,0 +1,31 @@
+.row
+  .col-sm-12
+    / Product Info Starts
+    - if false
+      .content-box
+        .row.product-info
+          / Left Starts
+          .col-sm-3.images-block
+            %p
+              %img.img-responsive.thumbnail{:alt => "Image", :src => @category.image }  
+          .col-sm-9.product-details
+            / Product Name Starts
+            .product-header
+              %h2 
+                = @category.name              
+            / Category Name Ends
+            %p 
+              = @category.description
+        / Category Info Ends
+    / Related Products Starts
+    .product-info-box
+      .content-box
+        / Products Row Starts
+        .row
+          - @category.products.each do |product|
+            .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
+              = render 'products/product', :product => product
+        / Products Row Ends
+    / Related Products Ends
+    / Primary Content Ends
+    / Sidebar Ends

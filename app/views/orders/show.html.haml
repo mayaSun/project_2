@@ -1,0 +1,91 @@
+%section
+  .row.panel-smart 
+    .col-sm-4.col-xs-12
+      .panel-title 
+        כתובת המשלוח
+      %br
+      .row.address-col
+        .col-sm-6
+          .address_line
+            = @order.shipping_address.email
+          .address_line
+            = @order.shipping_address.phone_number 
+        .col-sm-6
+          .name    
+            = @order.shipping_address.first_name + ' ' + @order.shipping_address.last_name
+          .address_line
+            = @order.shipping_address.address_line1
+          .address_line  
+            = @order.shipping_address.address_line2 
+          .address_line   
+            = @order.shipping_address.city + ' ' + @order.shipping_address.postal_code
+          .address_line
+            ישראל
+      .panel-title  
+        כתובת החשבונית
+      %br
+      .row.address-col
+        .col-sm-6
+          .address_line
+            = @order.billing_address.email
+          .address_line
+            = @order.billing_address.phone_number 
+        .col-sm-6
+          .name    
+            = @order.billing_address.first_name + ' ' + @order.billing_address.last_name
+          .address_line
+            = @order.billing_address.address_line1
+          .address_line  
+            = @order.billing_address.address_line2 
+          .address_line   
+            = @order.billing_address.city + ' ' + @order.billing_address.postal_code
+          .address_line
+            ישראל         
+        %br
+      .panel-title
+        סטטוס הזמנה
+      %br  
+      - if @order.status == 'Paid' 
+        .field
+          * הזמנה זו נעשתה ב: #{display_date(@order.updated_at)}                  
+      - elsif @order.status == 'Sent' 
+        .field
+          * ההזמנה נשלחה בתאריך:  #{display_date(@order.updated_at)}   
+        %span.field-name
+          מספר למעקב אחר החבילה:
+        %span.field
+          = @order.tracking_number
+      - else
+        .field
+          * הזמנה זו נעשתה ב: #{display_date(@order.updated_at)},התשלום ב PayPal תרם אושר.
+      %br
+      %br
+        .pull-left
+          = link_to 'חזור לאינדקס הזמנות', my_orders_path, class: 'btn btn-update' 
+    .col-sm-8.col-xs-12
+      .admin-table-title  
+        פירוט הזמנה  
+      .table-responsive.admin-table
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td.text-center
+                תמונה
+              %td.text-center
+                מוצר
+              %td.text-center
+                כמות
+              %td.text-center
+                שולם
+          %tbody
+            - @order.shopping_cart_items.each do |shopping_cart_item| 
+              %tr
+                %td.text-center
+                  %img.img-responsive{:alt => "image", :src => shopping_cart_item.image.big_thumb, :title => "image"}/
+                %td.text-center
+                  = link_to shopping_cart_item.name, product_path(shopping_cart_item.sellable) 
+                %td.text-center 
+                  x #{shopping_cart_item.qty}
+                %td.text-center 
+                  #{display_price(shopping_cart_item.price)}            
+          

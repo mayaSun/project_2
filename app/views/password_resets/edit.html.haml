@@ -1,0 +1,15 @@
+%section.reset_password.container
+  .row
+    .col-sm-10.col-sm-offset-1
+      =form_tag update_password_path, method: :patch do
+        %header
+          %h1 חדש סיסמה לאתר
+        %fieldset.form-group
+          .row
+            .col-sm-2.pull-right
+              = label_tag  :email, "הסיסמה החדשה" 
+            .col-sm-4.pull-right
+              = password_field_tag :password
+        = hidden_field_tag 'user_token', @user.token
+        %fieldset.form-group.action
+          = submit_tag "שלח", class: "btn btn-update"

@@ -1,0 +1,38 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title
+      = @jewelry.new_record? ? 'הוסף מוצר חדש לאתר' : '  עדכן את הפרטים של המוצר'
+  .panel-body    
+    = bootstrap_form_for [:admin, @jewelry], layout: :horizontal do |f|
+      .col-sm-5.col-sm-offset-7.col-xs-12
+        .admin-product-form-row
+          = f.text_field :name, label: '*שם:', placeholder: 'שם המוצר', label_col: "col-sm-4.col-sm.push-8", control_col: "col-sm-8"
+        .admin-product-form-row
+          = f.text_field :english_name, label: '*שם באנגלית:', placeholder: 'שם המוצר', label_col: "col-sm-4.col-sm.push-8", control_col: "col-sm-8"  
+        .admin-product-form-row
+          = f.file_field :image, label: '*תמונה:',label_col: "col-sm-4.col-sm.push-8", control_col: "col-sm-8"
+      .col-sm-5.col-sm-offset-7.col-xs-12  
+        .admin-product-form-row
+          = f.text_field :price, label: 'מחיר בשקלים:', placeholder: "המחיר בשקלים",label_col: "col-sm-4.col-sm.push-8", control_col: "col-sm-8"        
+      .col-sm-4.col-sm-offset-8.col-xs-12  
+        .admin-product-form-row
+          = f.select :crystal_id,  options_for_select(Crystal.order(:name).all.map {|crystal| [crystal.name, crystal.id]}.insert(0, ""), @jewelry.crystal_id),label: 'קריסטל בתכשיט:', label_col: "col-sm-6.col-sm.push-6", control_col: "col-sm-6"
+      = f.text_area :long_description, label: 'תיאור:', label_col: "col-sm-1.col-sm-push-11", control_col: "col-sm-11", rows: '4'
+      .col-sm-8.col-sm-offset-4.col-xs-12
+        - @jewelry.jewelry_crystals.each_with_index do |jewelry_crystal, i|
+          = f.fields_for :jewelry_crystals, jewelry_crystal, {:index => i } do |jc| 
+            .row
+              .col-sm-3.col-xs-12
+                = jc.text_field :price, label: 'במחיר:', placeholder: "המחיר בשקלים",label_col: "col-sm-5.col-sm.push-7", control_col: "col-sm-7" 
+              .col-sm-9.col-xs-12
+                = jc.select :crystal_id,  options_for_select(Crystal.order(:name).all.map {|crystal| [crystal.name, crystal.id]}.insert(0, "xxx מחק"), jewelry_crystal.crystal_id),label: 'אותו התכשיט עם הקריסטל:', label_col: "col-sm-7.col-sm.push-5", control_col: "col-sm-5"
+        - 5.times do |i|
+          = f.fields_for :jewelry_crystals, {:index => @jewelry.jewelry_crystals.size + i } do |jc| 
+            .row
+              .col-sm-3.col-xs-12
+                = jc.text_field :price, label: 'במחיר:', placeholder: "המחיר בשקלים",label_col: "col-sm-5.col-sm.push-7", control_col: "col-sm-7" 
+              .col-sm-9.col-xs-12
+                = jc.select :crystal_id,  options_for_select(Crystal.order(:name).all.map {|crystal| [crystal.name, crystal.id]}.insert(0, "")),label: 'אותו התכשיט עם הקריסטל:', label_col: "col-sm-7.col-sm.push-5", control_col: "col-sm-5"
+      .col-sm-12.col-xs-12  
+        = f.submit @jewelry.new_record? ? 'הוסף מוצר' : 'עדכן פרטים', class: "btn btn-add" , id: 'jewelry-form-submit'
+

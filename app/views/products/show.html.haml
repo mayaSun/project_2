@@ -1,0 +1,142 @@
+/ Product Info Starts
+.content-box
+  .row.product-info
+    / Left Starts
+    .col-sm-9.product-details
+      / Product Name Starts
+      .product-header
+        %h2
+          = @product.name
+        / Product Name Ends
+        / Price Starts
+        .price{:dir => "rtl"} 
+          %span.price-new{:id => "product_#{@product.id}_price"} 
+            = display_price(@product.price)    
+          %br   
+          - if @product.multiple_quantities?
+            .row
+              .col-xs-1.pull-right
+                אריזה:
+              .col-xs-2.pull-right  
+                = hidden_field_tag 'product_id', @product.id
+                = select_tag 'quantity_product', options_for_select([[display_quantity(@product.quantity, @product.quantity_unit), 'nurmal' ,'data-product-id' => @product.id, 'data-product-price' => @product.price], [display_quantity(@product.medium_package_quantity, @product.quantity_unit), 'medium','data-product-id' => @product.id, 'data-product-price' => @product.medium_package_price], [display_quantity(@product.big_package_quantity, @product.quantity_unit), 'big','data-product-id' => @product.id, 'data-product-price' => @product.big_package_price]], display_quantity(@product.quantity, @product.quantity_unit)) , class: 'form-control'  
+          - else
+            %span אריזה:
+            %span  
+              = display_quantity(@product.quantity, @product.quantity_unit)
+        / Price Ends
+        %p 
+          = @product.short_description
+      %ul.list-unstyled.manufacturer
+        %li   
+          - if !@product.stock          
+            %strong.label.label-important חסר במלאי  
+      / Manufacturer Start  
+      / Tabs Starts
+      .tabs-panel
+        / Nav Tabs Starts
+        %ul.nav.nav-tabs
+          %li.active
+            %a{:href => "#tab-description", "data-toggle" => "tab"} תאור  
+          - if @product.ingridience && @product.ingridience.length > 5 
+            %li
+              %a{:href => "#tab-ingridience", "data-toggle" => "tab"} רכיבים
+          - if @product.is_food?
+            %li
+              %a{:href => "#tab-nutritional-data", "data-toggle" => "tab"} ערך תזונתי
+          - if @product.use_instructions && @product.use_instructions.length > 5
+            %li
+              %a{:href => "#tab-use_instructions", "data-toggle" => "tab"} שימוש
+          - if @product.warnings && @product.warnings.length > 5
+            %li
+              %a{:href => "#tab-warnings", "data-toggle" => "tab"} אזהרות                
+        / Nav Tabs Ends
+        / Tab Content Starts
+        .tab-content.clearfix
+          / Description Starts
+          #tab-description.tab-pane.active
+            = @product.long_description     
+          / Description Ends
+          / Ingridience Starts
+          - if @product.ingridience && @product.ingridience.length > 5 
+            #tab-ingridience.tab-pane
+              %p
+                = @product.ingridience 
+          / Ingridience Description Ends
+          / Nutritional Data start
+          - if @product.is_food?
+            #tab-nutritional-data.tab-pane
+              = display_nutritional_data(@product)
+          / Use Instructions Starts
+          - if @product.use_instructions && @product.use_instructions.length > 5
+            #tab-use_instructions.tab-pane
+              %p
+                = @product.use_instructions  
+          / Use Instructions Ends
+          / Warnings Starts
+          - if @product.warnings && @product.warnings.length > 5
+            #tab-warnings.tab-pane
+              %p
+                = @product.warnings  
+          / Warnings Ends  
+        / Tab Content Ends
+      / Tabs Ends           
+      / Manufacturer Ends
+      / Left Ends   
+      .to-all-products.hidden-xs
+        = link_to products_path do
+          %span לקטלוג מוצרים
+          %i.fa.fa-book
+    / Right Starts
+    .col-sm-3.images-block
+      .row
+        .col-sm-12.no-padding.col-xs-6
+          .hidden-xs    
+            %img.img-responsive.thumbnail{:alt => "Image", :src => @product.image}/
+          .visible-xs  
+            %img.img-responsive.thumbnail{:alt => "Image", :src => @product.image.big_thumb}/
+        .col-sm-12.no-padding.col-xs-6          
+          .options 
+          = form_tag shopping_cart_items_path, method: :post, class: "form-horizontal", id: "add-product-#{@product.id}" do
+            .form-group
+              .row 
+                .col-sm-2.col-xs-6.no-padding.pull-right
+                  %label.control-label.text-left{:for => "input-quantity"} כמות:               
+                .col-sm-3.col-xs-6.pull-right 
+                  = hidden_field_tag 'sellable_type', 'Product'     
+                  = hidden_field_tag 'sellable_id', @product.id
+                  = hidden_field_tag 'package_type' + @product.id.to_s,  'nurmal'
+                  = text_field_tag 'qty', 1, class: 'form-control', min: 1              
+                .hidden-xs
+                  .col-sm-7.pull-right
+                    = button_tag nil, class: 'btn btn-cart' do
+                      הוסף לסל
+                      %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png'}
+                .visible-xs.center-block
+                  %br
+                  %br
+                  = button_tag nil, class: 'btn btn-cart' do
+                    הוסף לסל
+                    %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png'}
+      / Available Options Ends 
+    / Right Ends
+  / Right Ends
+  .to-all-products.visible-xs
+    = link_to products_path do
+      %span לקטלוג מוצרים
+      %i.fa.fa-book
+  / product Info Ends
+/ Related Products Starts
+.product-info-box
+  .content-box
+    %h3.heading מוצרים דומים
+    / Products Row Starts
+    .row
+      - @related_products.each do |product|
+        .col-md-4.col-sm-4.col-xs-12.no-padding.pull-right
+          = render 'product', :product => product
+    / Products Row Ends
+/ Related Products Ends
+/ Primary Content Ends
+/ Sidebar Ends
+/ Main Container Ends

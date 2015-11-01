@@ -1,0 +1,15 @@
+m = $('#user-modal');
+m.html("#{j (render 'register_to_get_2_plants')}");
+$("#open-modal").click();
+$("#open-modal").prop('disabled', true);
+$('.checkbox').on('click', function(e) {
+var num_checked = 0;
+$('.checkbox').each(function() {
+if ( $(this).prop('checked') ) num_checked++;
+});
+var max_checked = 2
+if ( num_checked > max_checked ) {
+$(this).prop('checked', false);
+}
+});
+ 

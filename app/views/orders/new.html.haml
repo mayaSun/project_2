@@ -1,0 +1,17 @@
+%section
+  .row
+    .col-sm-6.hidden-xs   
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title רשימת המוצרים  
+      #cart
+        %ul.checkout-cart
+          = render 'shopping_cart_items/shopping_cart_summary', zone: 'checkout'
+    .col-sm-6
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title כתובת למשלוח
+        .panel-body
+          / Registration Form Starts
+          = render '/addresses/form', :@address => @shipping_address, zone: 'order'   
+          %input{:form => "new_address", :type => "submit", :value => 'המשך לתשלום', class: "btn btn-update"}/                   

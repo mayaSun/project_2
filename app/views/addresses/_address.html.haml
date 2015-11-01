@@ -1,0 +1,25 @@
+.row.address-col
+  .col-sm-2
+    = link_to edit_address_path(address) do
+      %i.fa.fa-refresh
+      %span ערוך פרטים  
+  .col-sm-4
+    .address_line
+      = address.email
+    .address_line
+      = address.phone_number 
+  .col-sm-4
+    .name    
+      = address.first_name + ' ' + address.last_name
+    .address_line
+      = address.address_line1
+    .address_line  
+      = address.address_line2 
+    .address_line   
+      = address.city + ' ' + address.postal_code
+    .address_line
+      ישראל
+  .col-sm-2
+    = link_to address_path(address, type: type), method: :delete, class:'delete-btn' do
+      %i.fa.fa-times-circle       
+      %span מחק

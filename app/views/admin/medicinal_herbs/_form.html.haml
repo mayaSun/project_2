@@ -1,0 +1,34 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title
+      = @medicinal_herb.new_record? ? 'הוסף צמח לאתר' : '  עדכן את הפרטים של הצמח'
+  .panel-body    
+    = bootstrap_form_for [:admin, @medicinal_herb], layout: :horizontal do |f|
+      .col-sm-5.col-sm-offset-7.col-xs-12
+        .admin-product-form-row
+          = f.text_field :name, label: '*שם:', placeholder: 'שם המחלה', label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"
+        .admin-product-form-row
+          = f.text_field :english_name, label: '*שם אנגלית:', placeholder: 'שם באנגלית', label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"
+        .admin-product-form-row
+          = f.text_field :latin_name, label: '*שם לטיני:', placeholder: 'שם המוצר', label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"                    
+        .admin-product-form-row
+          = f.file_field :image, label: '*תמונה:',label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"
+        .admin-product-form-row
+          = f.file_field :sprout_image, label: 'תמונת הנבט:',label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"                   
+      = f.text_area :medicinal_properties, label: '*שימוש רפואי:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '4'  
+      = f.text_area :use_instructions, label: 'אופן השימוש:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '3'
+      = f.text_area :warnings, label: 'אזהרות:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '3' 
+      = f.text_area :other_qualities, label: 'סגולות נוספות:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '1' 
+      .sub-title
+        לינקים למחקרים שנעשו על צמח זה:
+      .col-md-10.col-md-offset-2.col-sm-12.col-xs-12
+        - @medicinal_herb.research_links.each_with_index do |link, i|
+          .col-sm-12
+            = f.fields_for :research_links, link, {:index => i } do |link| 
+              = link.text_field :url, label: 'העתק לינק:', placeholder: "hhtp://...",label_col: "col-sm-2.col-sm.push-10", control_col: "col-sm-10", class: 'english' 
+        - 5.times do |i|
+          .col-sm-12
+            = f.fields_for :research_links, {:index => @medicinal_herb.research_links.size + i } do |link| 
+              = link.text_field :url, label: 'העתק לינק:', placeholder: "hhtp://...",label_col: "col-sm-2.col-sm.push-10", control_col: "col-sm-10" , class: 'english'
+      .col-sm-12.col-xs-12  
+        = f.submit @medicinal_herb.new_record? ? 'הוסף צמח' : 'עדכן פרטים', class: "btn btn-add" , id: 'medicinal_herb-form-submit'

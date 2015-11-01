@@ -1,0 +1,21 @@
+.information-page-content
+  .row
+    .col-sm-9     
+      .panel.panel-smart 
+        = bootstrap_form_for current_user, layout: :horizontal do |f|
+          .row
+            .col-sm-6.col-sm-offset-6.col-xs-12
+              .panel-heading
+                %h4.panel-title 
+                  ערוך פרטים אישיים
+              .panel-body 
+                = f.text_field :name, label: 'שם:',label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+                = f.email_field :email, label: "אי מייל:" ,label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+                .form-group 
+                  %label.control-label{:class =>'col-sm-4.col-sm-push-8'}
+                    סיסמה:
+                  .col-sm-8
+                    = password_field_tag :authentication, nil, class: 'form-control'
+                = f.submit 'עדכן פרטים', class: 'btn btn-update'
+    .col-sm-3
+      = render 'user_menu'

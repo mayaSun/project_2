@@ -1,0 +1,35 @@
+.admin-table-title
+  מלאי 
+.table-responsive.admin-table
+  %table.table.table-bordered
+    %thead
+      %tr
+        %td.text-center(width="12%")
+          תמונה
+        %td.text-center
+          שם 
+        %td.text-center(width="10%")
+          הזמנות  
+        %td.text-center(width="10%")
+          הזמנה אחרונה   
+        %td.text-center(width="10%")
+          מלאי 
+        %td.text-center(width="10%")            
+    %tbody
+      - @products.each do |product|
+        =  form_tag  stock_admin_product_path(product) , method: :patch do
+          %tr
+            %td.text-center
+              %img.img-responsive{:alt => "image", :src => product.image.big_thumb, :title => "image"}/
+            %td.text-center
+              =link_to product.name, product
+            %td.text-center
+              = product.orders.count
+            %td.text-center
+              = display_date(product.last_ordered)     
+            %td.text-center
+              .input-group.btn-block
+                = text_field_tag 'stock', product.stock, class: 'form-control', min: 0, size: '1'
+            %td.text-center
+              = submit_tag 'עדכן מלאי', class: 'btn btn-default tool-tip', id: 'product-stock-submit'
+                    

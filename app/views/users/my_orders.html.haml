@@ -1,0 +1,29 @@
+.information-page-content
+  .row
+    .col-sm-9  
+      - if logged_in?
+        .table-responsive.admin-table
+          %table.table.table-bordered
+            %thead
+              %tr
+                %td.text-center
+                  תאריך ההזמנה
+                %td.text-center
+                  סכום
+                %td.text-center
+                  סטטוס
+                %td.text-center
+                  פירוט הזמנה
+            %tbody
+              - current_user.orders.each do |order|   
+                %tr
+                  %td.text-center
+                    = display_date(order.created_at)
+                  %td.text-center
+                    = display_price(order.total_bill)
+                  %td.text-center
+                    = order.status
+                  %td.text-center
+                    = link_to 'פירוט ההזמנה', order_path(order)
+    .col-sm-3
+      = render 'user_menu'

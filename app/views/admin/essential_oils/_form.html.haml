@@ -1,0 +1,30 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title
+      = @essential_oil.new_record? ? 'הוסף שמן אתרי חדש לאתר' : '  עדכן את הפרטים של השמן האתרי'
+  .panel-body    
+    = bootstrap_form_for [:admin, @essential_oil], layout: :horizontal do |f|
+      .sub-title
+        שם ותמונה
+      .col-sm-5.col-sm-offset-7.col-xs-12
+        .admin-product-form-row
+          = f.text_field :name, label: '*שם:', placeholder: 'השמן', label_col: "col-sm-4.col-sm.push-8", control_col: "col-sm-8"
+        .admin-product-form-row
+          = f.text_field :english_name, label: '*שם באנגלית:', placeholder: 'השמן', label_col: "col-sm-4.col-sm.push-8", control_col: "col-sm-8"  
+        .admin-product-form-row
+          = f.file_field :image, label: '*תמונה:',label_col: "col-sm-3.col-sm.push-9", control_col: "col-sm-9"
+      .sub-title
+        מחיר
+      .col-sm-4.col-sm-offset-8.col-xs-12  
+        .admin-product-form-row
+          = f.text_field :price_5ml, label: '*מחיר ל 5ml :', placeholder: "ש\"ח" ,label_col: "col-sm-6.col-sm.push-6", control_col: "col-sm-6" 
+        .admin-product-form-row
+          = f.text_field :price_10ml, label: '*מחיר ל 10ml :', placeholder: "ש\"ח",label_col: "col-sm-6.col-sm.push-6", control_col: "col-sm-6" 
+        .admin-product-form-row
+          = f.text_field :price_50ml, label: '*מחיר ל 50ml :', placeholder: "ש\"ח",label_col: "col-sm-6.col-sm.push-6", control_col: "col-sm-6"            
+      .sub-title
+        הוראות שימוש ואזהרות  
+      = f.text_area :use_instructions, label: 'הוראות שימוש:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '3'  
+      = f.text_area :warnings, label: 'אזהרות:', label_col: "col-sm-2.col-sm-push-10", control_col: "col-sm-10", rows: '3' 
+      .col-sm-12.col-xs-12  
+        = f.submit @essential_oil.new_record? ? 'הוסף שמן' : 'עדכן שמן', class: "btn btn-add" , id: 'essential-oil-form-submit'

@@ -1,0 +1,30 @@
+.content-box
+  .row.product-info
+    / Left Starts
+    .col-sm-3.images-block
+      %p
+        %img.img-responsive.thumbnail{:alt => "Image", :src => '/images/Handful-Herbs.jpg' }  
+    .col-sm-9.product-details
+      / Product Name Starts
+      .product-header
+        %h2 
+          תכשיטים רפואיים              
+      / Category Name Ends
+      %p 
+        כל הקריסטלים רובם ככולם משמשים לריפוי ע"י נשיאה ו\או שתיית מיים בהם הושרו הקריסטלים (וזאת למעט הקריסטלים הרעילים אשר צויינו במפורש באתרינו). מטרת התכשיטים הרפואיים אשר עיצבנו עבורכם הינה בעקר לאפשר מגע של האבן עם גוף המטופל וזאת בניגוד לרב התכשיטים הרגילים בהם האבן פונה למעלה ולמעשה אין לה שום מגע עם הגוף. 
+      %p
+        עמלנו רבות על מנת לעצב תכשיטים אשר יהיו מכוונים לצ'אקרות השונות כגון שרשראות הניתנות לקיצור, צמידים אשר יושבים על הדופק וטבעות אשר יאפשרו את מגע האבן עם הגוף. אנו תקווה שהשימוש בתכשיטים רפואיים אלו יועיל ויטיב עם נושאיהם. 
+      %p
+        כמובן נשמח לקבל תגובות ומשוב לכל הרגשה אשר תבוא בעקבות נשיאת האבן.
+        בתודה צוות המעצבים.  
+/ Related jewelrys Starts
+.product-info-box
+  .content-box
+    %h3.heading קטלוג תכשיטים
+    / jewelrys Row Starts
+    .row
+      - @jewelries.each do |jewelry|
+        .col-md-2.col-sm-3.col-xs-6.no-padding.pull-right
+          = render 'jewelry', :jewelry => jewelry
+    / jewelrys Row Ends
+/ Related jewelrys Ends

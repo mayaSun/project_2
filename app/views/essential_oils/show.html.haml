@@ -1,0 +1,73 @@
+/ essential_oil Info Starts
+.content-box
+  .row.product-info
+    / Left Starts
+    .col-sm-9.product-details
+      / essential_oil Name Starts
+      .product-header
+        %h2
+          = @essential_oil.name
+        / essential_oil Name Ends
+        / Price Starts
+        .price{:dir => "rtl"} 
+          %span.price-new{:id => "essential_oil_#{@essential_oil.id}_price"} 
+            = display_price(@essential_oil.price_5ml)
+        / Price Ends
+        .row
+          .col-xs-5.col-sm-2.pull-right
+            %label.control-label.text-left{:for => "input-quantity"} נפח בקבוק:         
+          .col-xs-6.col-sm-2.pull-right
+            = hidden_field_tag 'essential_oil_id', @essential_oil.id
+            = select_tag 'ml_essential_oil', options_for_select([['5ml','data-essential-oil-id' => @essential_oil.id, 'data-essential-oil-price' => @essential_oil.price_5ml], ['10ml','data-essential-oil-id' => @essential_oil.id, 'data-essential-oil-price' => @essential_oil.price_10ml], ['50ml','data-essential-oil-id' => @essential_oil.id, 'data-essential-oil-price' => @essential_oil.price_50ml]], '5ml') ,  class: 'form-control'
+        %p 
+          100% שמן טהור אבסולוט
+      / Manufacturer Start  
+      = @essential_oil.use_instructions
+      %br
+      - if @essential_oil.warnings
+        .h4
+          אזהרות
+        .warnings
+          = @essential_oil.warnings
+          %br
+      / Manufacturer Ends
+      / Left Ends  
+      .to-all-products
+        = link_to essential_oils_path do
+          %span לקטלוג שמנים
+          %i.fa.fa-book
+    / Right Starts
+    .col-sm-3.images-block.hidden-xs      
+      %img.img-responsive.thumbnail.smaller-image{:alt => "Image", :src => @essential_oil.image}/  
+      = form_tag shopping_cart_items_path, method: :post, class: "form-horizontal", id: "add-essential-oil-#{@essential_oil.id}"  do
+        .form-group
+          .row 
+            .col-xs-6
+              = button_tag nil, class: 'btn btn-cart' do
+                הוסף לסל
+                %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png' } 
+            .col-xs-4      
+              = hidden_field_tag 'sellable_type', 'EssentialOil'     
+              = hidden_field_tag 'sellable_id',  @essential_oil.id
+              = hidden_field_tag 'package_type' + @essential_oil.id.to_s,  '5ml'
+              = text_field_tag 'qty', 1, class: 'form-control', min: 1
+            .col-xs-2.no-padding
+              %label.control-label.text-left{:for => "input-quantity"} כמות:               
+      / Available Options Ends 
+    / Right Ends
+  / Right Ends
+  / essential_oil Info Ends
+/ Related essential_oils Starts
+.product-info-box
+  .content-box
+    %h3.heading שמנים נוספים
+    / essential_oils Row Starts
+    .row
+      - @essential_oils.each do |essential_oil|
+        .col-md-4.col-sm-4.col-xs-12.no-padding.pull-right
+          = render 'essential_oil', :essential_oil => essential_oil
+    / essential_oils Row Ends
+/ Related essential_oils Ends
+/ Primary Content Ends
+/ Sidebar Ends
+/ Main Container Ends

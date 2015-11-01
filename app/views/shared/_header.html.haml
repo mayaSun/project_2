@@ -1,0 +1,262 @@
+%header#header-area
+  / Header Top Starts
+  .header-top.navbar-fixed-top
+    - if false
+      .home-link
+        %i.fa.fa-home{:title => "Home"}
+    .container.no-padding
+      / Header Links Starts
+      - if false
+        .col-md-1.col-sm-3.col-xs-4     
+          / Languages Starts
+          %ul.nav.navbar-nav.pull-left
+            .btn-group
+              %button.btn.btn-link.dropdown-toggle.small-devise-no-padding{"data-toggle" => "dropdown"}
+                Language
+                %i.fa.fa-caret-down
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#", :tabindex => "-1"} English
+                %li
+                  %a{:href => "#", :tabindex => "-1"} עברית
+        / Languages Ends
+      .col-md-8.col-sm-6.col-xs-4
+        .header-links
+          %ul.nav.navbar-nav.pull-left
+            - if logged_in? && current_user_admin?
+              = link_to 'Administration', admin_users_path, class: 'btn shopping-cart-checkout-btn'
+            - if logged_in?       
+              %li{:class => nav_active(my_account_path)}
+                = link_to my_account_path do
+                  %i.fa.fa-user{:title => "My Account"}
+                  %span.hidden-sm.hidden-xs
+                    החשבון שלי           
+              %li      
+                = link_to logout_path, method: :delete  do
+                  %i.fa.fa-unlock{:title => "LogOut"}
+                  %span.hidden-sm.hidden-xs
+                    התנתק      
+            - else  
+              %li
+                = link_to login_path, remote: true, class: 'small-devise-no-padding' do
+                  %i.fa.fa-lock{:title => "Login"}
+                  התחבר                 
+              %li          
+                = link_to register_to_get_2_plants_path, remote: true,class: 'small-devise-no-padding' do
+                  %span.hidden-sm.hidden-xs
+                    ** הרשם לקבלת 2 צמחי מרפא שימושיים **                       
+      .col-md-4.col-sm-6.col-xs-8.no-padding
+        .header-links
+          %ul.nav.navbar-nav.pull-right.cart-links
+            %li{:class => nav_active(checkout_path)}
+              = link_to checkout_path , class: 'shopping-cart-checkout-btn small-devise-no-padding'do
+                %span
+                  לקופה
+            %li.dropdown#cart{:class => nav_active(shopping_cart_path)}
+              / Shopping Cart Starts
+              %button.btn.dropdown-toggle.dropdown-toggle-shopping-cart{"data-toggle" => "dropdown", :type => "button"}
+                %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png' } 
+                %span#cart-total.hidden-xs סל קניות (#{shopping_cart.count}) : #{display_price(total_bill)}
+                %i.fa.fa-caret-down
+              %ul.dropdown-menu
+                = render 'shopping_cart_items/shopping_cart_summary', zone: 'header'
+              / Shopping Cart Ends
+      / Header Links Ends
+  / Header Top Ends
+  / Starts
+  .container.no-padding
+    / Main Header Starts
+    .main-header
+      .row.hidden-xs
+        / Logo Starts
+        .col-sm-4.col-sm-offset-4.pull-left
+          #logo
+            = link_to home_path do
+              %img.img-responsive{:alt => "Cosmic Pendants", :src => "/images/logo.jpg", :title => "Holy Land Herbs"}/            
+        / Logo End
+        / Search Starts
+        .col-md-3.col-sm-4.search-phone
+          .row
+            / Phone start
+            .col-sm-12
+              .header-phone
+                %span 052-8958957
+                %i.glyphicon.glyphicon-phone-alt
+              %br
+            / Phone ends
+            / Search Starts  
+            .col-sm-12
+              #search  
+                = form_tag(search_path, method: "get") do            
+                  .input-group
+                    = text_field_tag :search_term, params[:search_term], :placeholder => "חיפש מהיר באתר...",class: "form-control input-lg"  
+                    %span.input-group-btn
+                      = button_tag nil , class: "btn btn-lg", id: 'search-submit' do
+                        %i.fa.fa-search        
+              / Search Ends
+      / Extra Small start
+      .row.visible-xs
+        .col-xs-6
+          #logo
+            = link_to home_path do
+              %img.img-responsive{:alt => "Cosmic Pendants", :src => "/images/logo.jpg", :title => "Holy Land Herbs"}/           
+        .col-xs-6
+          .header-phone
+            %span 052-8958957
+            %i.glyphicon.glyphicon-phone-alt
+          %br
+        .row  
+          .col-xs-10.col-xs-offset-1
+            #search  
+              = form_tag(search_path, method: "get") do            
+                .input-group
+                  = text_field_tag :search_term, params[:search_term], :placeholder => "חיפש מהיר באתר...",class: "form-control input-lg"  
+                  %span.input-group-btn
+                    = button_tag nil , class: "btn btn-lg", id: 'search-submit' do
+                      %i.fa.fa-search 
+      / Extra Small End
+    / Main Header Ends
+    / Info Main Menu Starts
+    %nav#main-menu.info-main-menu.navbar{:role => "navigation"}
+      / Nav Header Starts
+      .navbar-header
+        %button.btn.btn-navbar.navbar-toggle{"data-target" => ".navbar-cat-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle Navigation
+          %i.fa.fa-bars
+          %span מידע כללי
+      / Nav Header Ends
+      / Navbar Cat collapse Starts
+      .collapse.navbar-collapse.navbar-cat-collapse
+        .row
+          .col-sm-12
+            %ul.nav.nav-justified
+              %li.dropdown
+                %a.dropdown-toggle{"data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" }
+                  אינדקס צמחי מרפא 
+                %ul.dropdown-menu.pull-right{:role => "menu"}
+                  %li
+                    = link_to 'לפי שם הצמח' , medicinal_herbs_path
+                  %li
+                    = link_to 'לפי התאמה לבעייה רפואית', medical_activities_path
+                  %li
+                    = link_to 'לפי חומרים פעילים', active_ingredients_path 
+              %li{:class => nav_active(crystals_path)}
+                = link_to 'אינדקס קריסטלים' , crystals_path 
+              %li{:class => nav_active(active_museum_path)}
+                = link_to 'מוזיאון פעיל' , active_museum_path               
+              %li{:class => nav_active(clinics_path)}
+                = link_to 'קליניקות ומטפלים' , clinics_path
+              %li{:class => nav_active(seed_bank_path)}
+                = link_to 'בנק הזרעים' , seed_bank_path    
+              %li{:class => nav_active(about_us_path)}
+                = link_to 'מי אנחנו' , about_us_path                                        
+      / Navbar Cat collapse Ends
+    / Information Main Menu Ends  
+    %nav#main-menu.store-main-menu.navbar{:role => "navigation"}
+      / Nav Header Starts
+      .navbar-header
+        %button.btn.btn-navbar.navbar-toggle{"data-target" => ".navbar-store-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle Navigation
+          %i.fa.fa-bars
+          %span חנות
+      / Nav Header Ends
+      / Navbar Cat collapse Starts
+      .collapse.navbar-collapse.navbar-store-collapse
+        .row.no-padding
+          .col-sm-12.no-padding
+            %ul.nav.navbar-nav.nav-justified.no-padding  
+              %li{:class => nav_active(tincture_path),:style => "background-image: url(/images/tincture.jpg);"}
+                = link_to 'טינקטורות' , tincture_path , class: 'category'   
+              %li{:class => nav_active(hydrosol_path),:style => "background-image: url(/images/hydrosol.jpg);"}
+                = link_to 'הידרוסולים' , hydrosol_path, class: 'category'
+              - if false
+                %li{:class => nav_active(jewelries_path),:style => "background-image: url(/images/oils-740177_640.jpg);"}
+                  = link_to 'תכשיטים רפואיים' , jewelries_path, class: 'category'
+              %li{:class => nav_active(essential_oils_path),:style => "background-image: url(/images/essential_oil.jpg);"}
+                = link_to  essential_oils_path, class: 'category' do
+                  שמנים אתריים                
+              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:style => "background-image: url(/images/base_oils.jpg);"}
+                = link_to 'שמני בסיס', category_path(category('שמני בסיס')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
+                %ul.dropdown-menu
+                  / Products Row Starts
+                  .row.category-dropdown-menu
+                    - category('שמני בסיס').products.each do |product|
+                      .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
+                        %li
+                          = link_to product_path(product) do
+                            .category-col
+                              .image
+                                %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
+                              .title
+                                = product.name 
+              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:style => "background-image: url(/images/specials.jpg);"}
+                = link_to 'מוצרים מיוחדים', category_path(category('מוצרים מיוחדים')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top"  
+                %ul.dropdown-menu
+                  / Products Row Starts
+                  .row.category-dropdown-menu
+                    - category('מוצרים מיוחדים').products.each do |product|
+                      .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
+                        %li
+                          = link_to product_path(product) do
+                            .category-col
+                              .image
+                                %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
+                              .title
+                                = product.name 
+              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:style => "background-image: url(/images/cosmetic_care.jpg);"}
+                = link_to 'טיפוח קוסמטי', category_path(category('טיפוח קוסמטי')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
+                %ul.dropdown-menu
+                  / Products Row Starts
+                  .row.category-dropdown-menu
+                    - category('טיפוח קוסמטי').categories.each do |sub_category|
+                      .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
+                        %li
+                          = link_to category_path(sub_category) do
+                            .category-col
+                              .image
+                                %img.img-responsive{:alt => "product", :src => sub_category.image.big_thumb}/
+                              .title
+                                = sub_category.name 
+                    - category('טיפוח קוסמטי').products.each do |product|
+                      .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
+                        %li
+                          = link_to product_path(product) do
+                            .category-col
+                              .image
+                                %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
+                              .title
+                                = product.name 
+              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:style => "background-image: url(/images/medicinal_food.jpg);"}
+                = link_to 'מזון רפואי', category_path(category('מזון רפואי')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
+                %ul.dropdown-menu
+                  / Products Row Starts
+                  .row.category-dropdown-menu
+                    - category('מזון רפואי').categories.each do |sub_category|
+                      .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
+                        %li
+                          = link_to category_path(sub_category) do
+                            .category-col
+                              .image
+                                %img.img-responsive{:alt => "product", :src => sub_category.image.big_thumb}/
+                              .title
+                                = sub_category.name 
+                    - category('מזון רפואי').products.each do |product|
+                      .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
+                        %li
+                          = link_to product_path(product) do
+                            .category-col
+                              .image
+                                %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
+                              .title
+                                = product.name           
+              %li.visible-sm.visible-xs{:class => nav_active(category_path(category('שמני בסיס'))),:style => "background-image: url(/images/base_oils.jpg);"}
+                = link_to 'שמני בסיס', category_path(category('שמני בסיס')), class: 'category'
+              %li.visible-sm.visible-xs{:class => nav_active(category_path(category('מוצרים מיוחדים'))),:style => "background-image: url(/images/specials.jpg);"}
+                = link_to 'מוצרים מיוחדים', category_path(category('מוצרים מיוחדים')), class: 'category' 
+              %li.visible-sm.visible-xs{:class => nav_active(category_path( category('טיפוח קוסמטי') )),:style => "background-image: url(/images/cosmetic_care.jpg);"}
+                = link_to 'טיפוח קוסמטי', category_path(category('טיפוח קוסמטי')), class: 'category'
+              %li.visible-sm.visible-xs{:class => nav_active(category_path( category('מזון רפואי') )),:style => "background-image: url(/images/medicinal_food.jpg);"}
+                = link_to 'מזון רפואי', category_path(category('מזון רפואי')), class: 'category'
+      / Navbar Cat collapse Ends
+    / Store Main Menu Ends
+  / Ends

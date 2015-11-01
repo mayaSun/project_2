@@ -1,0 +1,32 @@
+.panel.panel-smart
+  .row
+    .col-sm-4
+    .col-sm-8
+      .panel-heading
+        %h3.panel-title 
+          לקוחות חדשים
+      .panel-body  
+        %p
+          ע"י הצטרפותך למשתמשי האתר תוכל להנות מקנייה מהירה יותר ע"י שימוש בשירותי האתר עבור לקוחות
+        %ul  
+          %li
+            בדיקת סטטוס הזמנות
+          %li
+            ניהול רשימת כתובות למשלוחים וחשבוניות
+          %li
+            קנייה חוזרת מהירה של מוצרים שאהבתם
+        %p
+          בנוסף משתמשים חדשים שנרשמים לאתר יקבלו במתנה 2 שתילים של צמחי מרפא ע"פ בחירתם.  
+      .panel-heading
+        %h3.panel-title 
+          פרטי הרשמה    
+      .panel-body
+        .row
+          .col-sm-10.col-md-6.pull-right     
+            = bootstrap_form_for @user, url: sign_up_path, layout: :horizontal do |f|
+              = f.text_field :name, label: 'שם משתמש:',label_col: "col-sm-5.col-sm-push-8", control_col: "col-sm-8"
+              = f.email_field :email, label: "*אי מייל:" ,label_col: "col-sm85.col-sm-push-8", control_col: "col-sm-8"
+              = f.password_field :password, label:'*סיסמה:', label_col: "col-sm-5.col-sm-push-8", control_col: "col-sm-8"
+              = f.password_field :password_confirmation, label: "אימות סיסמה:", label_col: "col-sm-5.col-sm-push-8", control_col: "col-sm-8"
+              = token_tag
+              = f.submit 'הצטרף', class: 'btn btn-update' , remote: true

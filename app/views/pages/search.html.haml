@@ -1,0 +1,62 @@
+/ Related Products Starts
+- if !@products.empty?
+  .product-info-box
+    .content-box
+      %h3.heading מוצרים
+      / Products Row Starts
+      .row
+        - @products.each do |product|
+          .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
+            = render 'products/product', :product => product
+      / Products Row Ends
+/ Related Products Ends
+/ Related Crystals Starts
+- if !@crystals.empty?
+  .product-info-box
+    .content-box
+      %h3.heading קריסטלים
+      / Crystals Row Starts
+      .row
+        - @crystals.each do |crystal|
+          .col-md-2.col-sm-3.col-xs-6.no-padding.pull-right
+            = render 'crystals/crystal', :crystal => crystal
+      / Crystals Row Ends
+/ Related Herbs Ends
+/ Related Herbs Starts
+- if !@medicinal_herbs.empty?
+  .product-info-box
+    .content-box
+      %h3.heading צמחי מרפא
+      / Herbs Row Starts
+      .row
+        - @medicinal_herbs.each do |medicinal_herb|
+          .col-md-2.col-sm-3.col-xs-6.no-padding.pull-right
+            = render 'medicinal_herbs/medicinal_herb_small', :medicinal_herb => medicinal_herb
+      / Herb Row Ends
+/ Related Herbs Ends
+/ Related Medical Activities Starts
+- if !@medical_activities.empty?
+  .product-info-box
+    .content-box
+      %h3.heading בעיות רפואיות
+      / Medical Activity Row Starts
+      .medicinal-herbs-list
+        .row
+          - @medical_activities.each do |medical_activity|
+            .col-md-4.col-sm-3.col-xs-12.no-padding.pull-right
+              = link_to medical_activity.name, medical_activity_path(medical_activity)
+      / Medical Activity Row Ends
+/ Related Medical Activities Ends
+/ Related Active Ingredients Starts
+- if !@active_ingredients.empty?
+  .product-info-box
+    .content-box
+      %h3.heading חומרים פעילים
+      / Active Ingredient Row Starts
+      .medicinal-herbs-list
+        .row
+          - @active_ingredients.each do |active_ingredient|
+            .col-md-4.col-sm-3.col-xs-12.no-padding.pull-right
+              = link_to active_ingredient.name, active_ingredient_path(active_ingredient)
+      / Active Ingredient Row Ends
+/ Related Active Ingredients Ends

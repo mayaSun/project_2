@@ -1,0 +1,16 @@
+.account-info-box
+  .header
+    פרטים אישיים
+  .name
+    = current_user.name
+  .email  
+    = current_user.email
+  = link_to  'ערוך', edit_user_path(current_user)
+.list-group.user-menu
+  = link_to 'סטטוס הזמנות', my_orders_path, class: (nav_active(my_orders_path) + ' list-group-item')
+  - if false
+    = link_to 'חזר למלאי', nil, class: (nav_active(my_orders_path) + ' list-group-item')
+  = link_to 'שנה סיסמה', reset_password_user_path(current_user), class: (nav_active(reset_password_user_path(current_user)) + ' list-group-item')
+  = link_to 'הכתובות שלי', addresses_path, class: (nav_active(addresses_path) + ' list-group-item')
+  - if false
+    = link_to 'המועדפים שלי', nil, class: (nav_active(my_orders_path) + ' list-group-item')

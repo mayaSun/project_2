@@ -1,0 +1,33 @@
+.row
+  / Medicinal Herbs Index Starts
+  .col-sm-12
+    .content-box
+      .row.product-info
+        / Left Starts
+        .col-md-4.col-sm-3.images-block
+          %p
+            %img.img-responsive.thumbnail{:alt => "Image", :src => '/images/hydrosols.jpg' }  
+        .col-md-8.col-sm-9.product-details
+          / Product Name Starts
+          .product-header
+            %h2 
+              הידרוסולים (אמולסיה)              
+          / Category Name Ends
+          %p
+            הידרוסול מה הוא? בתהליך הפקת השמן האתרי הטהור יוצא השמן ביחד עם מי הצמח למפריד נוזלים גדול. לאחר שצף השמן במפריד נשארים מתחתיו מי הצמח עם המקסימום שמן שיכולה התערובת המימית להכיל, ולמי צמח אלו ביחד עם המקסימום שמן אתרי שהיא  יכולה להכיל קוראים בעולם הארומה תרפיה הידרוסולאו אמולסיה. שתי שמות אלו למעשה מייצגים את מי הצמח עצמו ונציין כאן שכל מוצרי הקוסמטיקה והטיפוח המיוצרים במפעלינו מיוצרים אך ורק על הידרוסול טהור.
+          %p 
+            כל ההידרוסולים המיוצרים במפעלינו מופקים מחומר צמחי באיכות המשובחת ביותר, צמח צמח לפי זמן גידולו. ניתן להשיג הידרוסולים אשר נמצאים במלאי בצורה מיידית וזמינה, וניתן לעשות הזמנות עתידיות לשנה הבאה מכל צמח הגדל בארץ ישראל. לגבי צמחים הגודלים בחו"ל יש לברר ולהתעדכן לפני ההזמנה.
+          %p
+            לבדיקת זמינותם של ההידרוסולים במלאי ולשם ביצוע הזמנה יש להתקשר למוקד שרות לקוחות בין השעות 9:00 - 12:00, או לשלוח מייל ל: holy-land-herbs@gmail.com
+      %br     
+      .medicinal-herbs-list
+        .header
+          רשימת הידרוסילים
+      .product-info-box
+        .content-box
+          / Products Row Starts
+          .row
+            - category('הידרוסולים').products.each do |product|
+              .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
+                = render 'products/product', :product => product 
+/ Medicinal Herbs Index Starts

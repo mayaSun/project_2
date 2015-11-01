@@ -1,0 +1,13 @@
+.information-page-content
+  .row
+    .col-md-3
+      = render 'users/user_menu'
+    .col-md-9
+      .panel.panel-smart
+        .panel-heading
+          %h4.panel-title 
+            עדכן פירטי כתובת
+        .panel-body
+          .row
+            .col-sm-6.col-sm-offset-6
+              = render 'form', zone: 'address'

@@ -1,0 +1,81 @@
+%footer#footer-area
+  / Footer Links Starts
+  .footer-links
+    / Container Starts
+    .container
+      / My Account Links Starts
+      .col-md-2.col-sm-2
+        %h5 החשבון שלי
+        %ul
+          %li
+            = link_to 'פרטים אישיים', my_account_path
+          %li
+            = link_to 'סטטוס הזמנות', my_orders_path 
+      / My Account Links Ends
+      / Information Links Starts
+      .col-md-2.col-sm-2
+        %h5 מידע כללי
+        %ul
+          %li
+            = link_to 'מי אנחנו', about_us_path
+          %li
+            = link_to 'מידע על משלוחים', delivery_information_path
+          %li
+            = link_to 'תנאי שימוש באתר', terms_and_conditions_path  
+      / Information Links Ends
+      / Follow Us Links Starts
+      .col-md-2.col-sm-2.col-xs-12
+        %h5 עקוב אחרינו
+        %ul.follow-us
+          %li
+            %a{:href => "#"} Facebook
+          - if false  
+            %li
+              %a{:href => "#"} Twitter
+            %li
+              %a{:href => "#"} RSS
+            %li
+              %a{:href => "#"} YouTube
+      / Follow Us Links Ends
+      / Contact Us Starts
+      .col-md-5.col-sm-6.last
+        %ul
+          %li
+            = link_to  contact_us_path do
+              %i.fa.fa-envelope
+              %span כתוב לנו
+          %br
+          %li עשבי ארץ ישראל
+          %li
+            אי מייל:
+            %a{:href => "#"} holylandherbs@gmail.com
+        %h4.lead
+          %span 052-8958957
+          %i.glyphicon.glyphicon-phone-alt
+      / Contact Us Ends
+    / Container Ends
+  / Footer Links Ends
+  / Copyright Area Starts
+  .copyright
+    / Container Starts
+    .container
+      / Starts
+      %p.pull-left
+        \  בניית אתרים
+        %a{:href => "http://sainathchillapuram.com"} Maya Sandovsky
+      / Ends
+      / Payment Gateway Links Starts
+      %ul.pull-right.list-inline
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/cirrus.png"}/
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/paypal.png"}/
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/visa.png"}/
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/mastercard.png"}/
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/americanexpress.png"}/
+      / Payment Gateway Links Ends
+    / Container Ends
+  / Copyright Area Ends

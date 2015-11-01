@@ -1,0 +1,51 @@
+/ Registration Form Starts
+= bootstrap_form_for  @address, url: address_form_url_by_zone(zone), layout: :horizontal , html: {id: :new_address } do |f|  
+  = f.text_field :first_name, label: '*שם פרטי:', placeholder: 'שם פרטי', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+  = f.text_field :last_name, label:'*שם משפחה:', placeholder: 'שם משפחה', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+  = f.text_field :address_line1, label: '*כתובת:',placeholder: 'כתובת', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+  = f.text_field :address_line2, label: 'שורה 2:', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+  = f.text_field :city, label:'*עיר:',placeholder: 'עיר', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+  //.form-group
+  //  = f.label :country_code, '*Country:', class: 'control-label col-sm-2'
+  //  .col-sm-4
+  //    .order-carmen-select-input
+  //      = f.country_select :country_code, priority: %w(US CA), prompt: 'Please select a country' ,onchange: 'jsFunction()'   
+  //.form-group
+  //  = f.label :state_code, 'State/Province:', class: 'control-label col-sm-2'
+  //   .col-sm-5
+  //     .order-carmen-select-input
+  //       = render partial: 'subregion_select', locals: {parent_region: f.object.country_code}
+  = f.text_field :postal_code, label:'*מיקוד:',placeholder: 'מיקוד', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+  = f.text_field :phone_number, label:'*טלפון:',placeholder: 'טלפון', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+  = f.text_field :email, label:'*דואר אלקטרוני:',placeholder: 'דואר אלקטרוני', label_col: "col-sm-4.col-sm-push-8", control_col: "col-sm-8"
+  - if zone == 'address' 
+    = check_box_tag 'shipping', 1, true
+    %span כתובת למשלוחים
+    %br
+    = check_box_tag 'billing', 1, true
+    %span כתובת לחשבוניות
+    %br
+    %br
+    = f.submit 'שמור', class: "btn btn-update"
+  - elsif zone == 'order'  
+    .panel-title סוג המשלוח
+    %br
+    = radio_button_tag "delivery_method", 'post_mail', false
+    דואר ישראל #{display_price(display_post_mail_shipping_bill)}    
+    %br  
+    = radio_button_tag "delivery_method", 'ups', true
+    משלוח UPS - ב #{display_price(40)}
+    %br
+    = radio_button_tag "delivery_method", 'pickup', false
+    איסוף עצמי
+    %br
+    %br
+    = check_box_tag 'billing', 1, true
+    %span פרטי התשלום זהים לפרטי המשלוח.
+    %br
+    = check_box_tag 'accept_terms_and_conditions' 
+    %span
+      אני מאשר שקראתי והסכמתי   
+      = link_to 'לתנאי השימוש.', terms_and_conditions_orders_path, remote: true, class: 'span-link'
+      %br
+      %br 

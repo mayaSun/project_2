@@ -1,0 +1,15 @@
+.row
+  .col-xs-6
+    %form.form-horizontal
+      .form-group
+        .row
+          .col-xs-6
+            = link_to admin_medical_activity_path(medical_activity), method: :delete, :data => {:confirm => 'חשוב טוב!!! האם אתה בטוח שברצונך למחוק מחלה זו (זה יגרום למחיקת הקישור של הצמחים עם המחלה הזו)?'}, class: 'btn btn-remove' do
+              מחק
+              %i.fa.fa-remove          
+          .col-xs-6
+            = link_to edit_admin_medical_activity_path(medical_activity), class: 'btn btn-update' do
+              ערוך  
+              %i.fa.fa-pencil-square-o 
+  .col-xs-6
+    = link_to medical_activity.name, medical_activity_path(medical_activity) 
