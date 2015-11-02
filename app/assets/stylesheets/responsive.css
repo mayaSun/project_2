@@ -405,7 +405,7 @@
 }
 
 @media (min-width: 360px) {
-  #cart:hover > ul.dropdown-menu { 
+  #cart  ul.dropdown-menu { 
     width: 310px;  
   }
 }

@@ -223,9 +223,10 @@ hr{
 
 /* Cart Style Starts */  
 
-  #cart:hover > ul.dropdown-menu {
+  #cart:hover > ul.dropdown-menu { 
     display: block;   
   }
+
   #cart .btn{
     margin-top: 5px;
     padding-bottom: 4px;
