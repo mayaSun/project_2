@@ -4,11 +4,11 @@ CarrierWave.configure do |config|
     config.aws_credentials = {
       access_key_id:     ENV.fetch('AWS_ACCESS_KEY'),
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-      region:            'eu-central-1',
-      host_name: 'eu-central-1.amazonaws.com'
+      region:            'eu-central-1'
       #config: AWS.config({s3_endpoint: "eu-central-1.amazonaws.com"})
     }
     config.aws_bucket  = ENV.fetch('S3_BUCKET')
+    config.s3_region = 'eu-central-1'
     config.aws_acl    = 'public-read'
   
     # The maximum period for authenticated_urls is only 7 days.
