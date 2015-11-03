@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
       region:            'eu-central-1'
       #config: AWS.config({s3_endpoint: "eu-central-1.amazonaws.com"})
     }
-    config.host_name => 'eu-central-1.amazonaws.com',
+    config.aws_host_name => 'eu-central-1.amazonaws.com',
     config.aws_bucket  = ENV.fetch('S3_BUCKET')
     config.aws_acl    = 'public-read'
   
