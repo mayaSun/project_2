@@ -4,7 +4,6 @@ CarrierWave.configure do |config|
     config.aws_credentials = {
       access_key_id:     ENV.fetch('AWS_ACCESS_KEY'),
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-      url: "https://eu-central-1.amazonaws.com/",
       region:            'eu-central-1'
       #config: AWS.config({s3_endpoint: "eu-central-1.amazonaws.com"})
     }
