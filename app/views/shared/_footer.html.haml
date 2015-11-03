@@ -3,6 +3,10 @@
   .footer-links
     / Container Starts
     .container
+      .col-md-1.col-sm-1
+        = link_to home_path do
+          .home-link
+            %i.fa.fa-home
       / My Account Links Starts
       .col-md-2.col-sm-2
         %h5 החשבון שלי
@@ -38,7 +42,7 @@
               %a{:href => "#"} YouTube
       / Follow Us Links Ends
       / Contact Us Starts
-      .col-md-5.col-sm-6.last
+      .col-md-4.col-sm-5.last
         %ul
           %li
             = link_to  contact_us_path do

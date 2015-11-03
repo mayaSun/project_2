@@ -179,7 +179,7 @@
               %li{:class => nav_active(essential_oils_path),:style => "background-image: url(/images/essential_oil.jpg);"}
                 = link_to  essential_oils_path, class: 'category' do
                   שמנים אתריים                
-              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:style => "background-image: url(/images/base_oils.jpg);"}
+              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:class => nav_active(category_path(category('שמני בסיס'))), :style => "background-image: url(/images/base_oils.jpg);"}
                 = link_to 'שמני בסיס', category_path(category('שמני בסיס')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
                 %ul.dropdown-menu
                   / Products Row Starts
@@ -193,8 +193,8 @@
                                 %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
                               .title
                                 = product.name 
-              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:style => "background-image: url(/images/specials.jpg);"}
-                = link_to 'מוצרים מיוחדים', category_path(category('מוצרים מיוחדים')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top"  
+              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:class => nav_active(category_path(category('מוצרים מיוחדים'))),:style => "background-image: url(/images/specials.jpg);"}
+                = link_to 'מוצרים מיוחדים', category_path(category('מוצרים מיוחדים')), class: 'tow-lines category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top"  
                 %ul.dropdown-menu
                   / Products Row Starts
                   .row.category-dropdown-menu
@@ -207,7 +207,7 @@
                                 %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
                               .title
                                 = product.name 
-              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:style => "background-image: url(/images/cosmetic_care.jpg);"}
+              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:class => nav_active(category_path(category('טיפוח קוסמטי'))),:style => "background-image: url(/images/cosmetic_care.jpg);"}
                 = link_to 'טיפוח קוסמטי', category_path(category('טיפוח קוסמטי')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
                 %ul.dropdown-menu
                   / Products Row Starts
@@ -230,7 +230,7 @@
                                 %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
                               .title
                                 = product.name 
-              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:style => "background-image: url(/images/medicinal_food.jpg);"}
+              %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:class => nav_active(category_path(category('מזון רפואי'))), :style => "background-image: url(/images/medicinal_food.jpg);"}
                 = link_to 'מזון רפואי', category_path(category('מזון רפואי')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
                 %ul.dropdown-menu
                   / Products Row Starts

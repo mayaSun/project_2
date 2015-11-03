@@ -364,17 +364,34 @@
 
 @media (min-width: 1200px) {
   .store-main-menu .category {
-    line-height: 35px;
+    height: 70px;
     font-weight: bold;
+  }
+
+  .store-main-menu li > a{
+    padding-top: 14%;
+  }
+
+  .store-main-menu li > .tow-lines {
+    padding-top: 9% !important;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
   .store-main-menu li {
-    height: 60px !important;
+    height: 70px !important;
   }
+
+  .store-main-menu li > a{
+    padding-top: 16%; 
+  } 
+
+.store-main-menu li > .tow-lines {
+  padding-top: 2% !important;
 }
 
+
+}
 
 @media (max-width: 767px) {
   .header-phone span{
