@@ -9,7 +9,7 @@
           = f.text_field :name, label: 'שם:',label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9"  
           = f.text_field :english_name, label: 'שם באנגלית:',label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9"  
           = f.file_field :image, label: 'תמונה:',label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9"
-          = f.select :category_id,  options_for_select([nil] + Category.non_sub_categories.map {|category| [category.name, category.id]}, f.object.category_id ? f.object.category_id : nil),label: 'סוג מוצר:', label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9"
+          = f.select :category_id,  options_for_select([nil] + Category.non_sub_categories.map {|category| [category.name, category.id]}, f.object.category_id ? f.object.category_id : nil),label: 'סוג קטגוריה:', label_col: "col-sm-3.col-sm-push-9", control_col: "col-sm-9"
       = f.text_area :description, label: 'תיאור:',label_col: "col-sm-1.col-sm-push-11", control_col: "col-sm-11", rows: '4'   
       = f.button class: 'btn btn-add', id: 'category-form-submit' do
         = @category.new_record? ? 'הוסף קטגוריה' : 'עדכן קטגוריה'

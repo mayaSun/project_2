@@ -5,7 +5,7 @@ CarrierWave.configure do |config|
       access_key_id:     ENV.fetch('AWS_ACCESS_KEY'),
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
       region:            'eu-central-1'
-      #config: AWS.config({s3_endpoint: "s3.amazonaws.com"})
+      config: AWS.config({s3_endpoint: "eu-central-1.amazonaws.com"})
     }
     config.aws_bucket  = ENV.fetch('S3_BUCKET')
     config.aws_acl    = 'public-read'
