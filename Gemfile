@@ -23,7 +23,6 @@ gem 'carmen'
 gem 'carmen-rails'
 gem 'turbolinks'
 gem 'gon'
-gem 'sitemap_generator'
 
 group :development do
   gem 'thin'
