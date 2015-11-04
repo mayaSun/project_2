@@ -26,7 +26,8 @@
     / essential_oils Row Starts
     .row
       - @essential_oils.each do |essential_oil|
-        .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
-          = render 'essential_oil', :essential_oil => essential_oil
+        - if essential_oil.price_5ml > 0
+          .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
+            = render 'essential_oil', :essential_oil => essential_oil
     / essential_oils Row Ends
 / Related essential_oils Ends

@@ -479,7 +479,7 @@ hr{
   font-size: 20px !important;
   color:  #3e2e08; /*Dark brown*/ 
   padding-top: 14%;
-  text-shadow: -4px 4px 5px white, -4px 4px 5px white, 4px -4px 5px white, 4px -4px 5px white;
+  text-shadow: -2px 2px 5px white, -2px 2px 5px white, 2px -2px 5px white, 2px -2px 5px white;
 }
 
 .store-main-menu li > .tow-lines {
