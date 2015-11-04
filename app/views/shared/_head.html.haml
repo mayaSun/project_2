@@ -1,4 +1,7 @@
-%title Holy Land Herbs
+- if content_for?(:head)
+  = content_for(:head)
+- else
+  %title עשבי ארץ ישראל
 %meta(charset="UTF-8")
 %meta(name="viewport" content="width=device-width, initial-scale=1.0")
 %meta{:content => "initial-scale=1", :name => "viewport"}/
