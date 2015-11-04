@@ -1,0 +1,38 @@
+!!! XML
+%urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  %url
+    %loc 'http://www.holy-land-herbs.com'
+    %lastmod '2015-11-3'
+    %changefreq always
+    %priority 1.0
+  %url
+    %loc 'http://www.holy-land-herbs.com/categories/medicinal-food'
+    %lastmod #{category('מזון רפואי').products.last.updated_at.strftime('%Y-%m-%d')}
+    %changefreq weekly
+    %priority 0.9
+  %url
+    %loc 'http://www.holy-land-herbs.com/essential_oils'
+    %lastmod #{EssentialOil.all.last.updated_at.strftime('%Y-%m-%d')}
+    %changefreq weekly
+    %priority 0.8
+  - if category('שמני בסיס').products.last
+    %url
+      %loc 'http://www.holy-land-herbs.com/categories/base-oils'
+      %lastmod #{category('שמני בסיס').products.last.updated_at.strftime('%Y-%m-%d')}
+      %changefreq weekly
+      %priority 0.7
+    %url
+      %loc 'http://www.holy-land-herbs.com/categories/cosmetics'
+      %lastmod #{category('טיפוח קוסמטי').products.last.updated_at.strftime('%Y-%m-%d')}
+      %changefreq weekly
+      %priority 0.6
+    %url
+      %loc 'http://www.holy-land-herbs.com/categories/hydrosol'
+      %lastmod #{category('הידרוסולים').products.last.updated_at.strftime('%Y-%m-%d')}
+      %changefreq weekly
+      %priority 0.5
+  %url
+    %loc 'http://www.holy-land-herbs.com/medicinal_herbs'
+    %lastmod '2015-11-3'
+    %changefreq weekly
+    %priority 0.3

@@ -104,5 +104,6 @@ Rails.application.routes.draw do
   get '/password_reset/:token', to: "password_resets#edit", as: :reset_password
   patch '/password_reset', to: "password_resets#update", as: :update_password
   get '/invalid_token', to: "password_reset#invalid_token"
+  get 'sitemap.xml', :to => 'sitemap#index', :defaults => { :format => 'xml' }
 
 end
