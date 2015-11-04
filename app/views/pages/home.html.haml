@@ -11,15 +11,24 @@
               מקורות מידע המתבססים על מסורת ארוכת שנים של הרמב"ם. 
           .item
             %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide2-img.jpg"}/
+            .slider-content-div
+              = link_to medicinal_herbs_path do
+                מידע מקיף ושימושי על צמחי המרפא של ארץ ישראל.
           .item
             %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide3-img.jpg"}/  
+            .slider-content-div
+              = link_to hydrosol_path do
+                הידרוסולים המיוצרים במפעלינו מופקים מחומר צמחי באיכות המשובחת ביותר.              
           .item
             %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide4-img.jpg"}/
             .slider-content-div
               = link_to essential_oils_path do
                 שמנים אתריים טהורים ברמה גבוהה ועל טהרת צמחי ארץ ישראל.. 
           .item
-            %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide5-img.jpg"}/        
+            %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide5-img.jpg"}/  
+            .slider-content-div
+              = link_to category_path(category('מזון רפואי')) do
+                מוצרי מזון בריאות באיכות מעולה הנבדקים בקפידה       
         / Wrapper For Slides Ends
         / Controls Starts
         %a.left.carousel-control{"data-slide" => "prev", :href => "#main-carousel", :role => "button"}
