@@ -19,3 +19,4 @@
 # Ignore yml files
 /config/database.yml
 /config/application.yml
+/config/ngrok.yml
