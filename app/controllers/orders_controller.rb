@@ -20,7 +20,7 @@ class OrdersController <ApplicationController
   def create  
     @shipping_address = Address.new(address_params.merge( "country_code" => 'IL', "shipping" => true))
     if params[:accept_terms_and_conditions]
-      if check_shopping_cart_stock == true
+      if true #check_shopping_cart_stock == true
         if @shipping_address.save
           if params[:billing]
             @shipping_address.update_attributes(billing: true)
@@ -111,7 +111,7 @@ class OrdersController <ApplicationController
   def handle_order(order, payment_method) 
     order.status = 'Paid'
     order.save
-    order.update_stock
+    #order.update_stock
     ApplicationMailer.order_approval(order).deliver
   end
 
