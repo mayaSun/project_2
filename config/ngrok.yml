@@ -1,0 +1,10 @@
+tunnels:
+  httpbin:
+    proto: http
+    addr: 3000
+    subdomain: gad-shop-development
+  demo:
+    proto: http
+    addr: 9090
+    inspect: false
+    auth: "demo:secret"

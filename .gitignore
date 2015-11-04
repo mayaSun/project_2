@@ -17,4 +17,5 @@
 /public/uploads/*
 
 # Ignore yml files
-/config/*.yml
+/config/database.yml
+/config/application.yml
