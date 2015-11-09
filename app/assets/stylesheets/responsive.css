@@ -238,6 +238,13 @@
   
 }
 
+@media (max-width: 350px) {
+
+  .product-col .price span{
+    font-size: 14px !important;
+  }
+}
+
 /* Column 5ths */
 .col-xs-5ths,
 .col-sm-5ths,

@@ -557,10 +557,11 @@ hr{
       color:white; 
     }
     .product-col{
-      padding:10px 10px 10px;
+      padding:10px 0px 10px 50px;
       margin-bottom:15px;
       border:none;
     }
+
     .fixed-hight-product-col {
       height: 220px;
     }
@@ -595,7 +596,6 @@ hr{
       }
       .product-col .description{
         text-align: right !important;
-        padding:5px 0;
         color: #3e2e08; /*Dark brown*/
         font-size:18px;
         line-height: 0.9;
@@ -605,15 +605,13 @@ hr{
         padding-right:20px;
       }
 
-      .product-col .price{
-        padding-top: 4px;   
-      }
-        .product-col .price span.price-new{
-          color: #3e2e08; /*Dark brown*/
-          font-size:18px;
-          padding-right:5px;
-          padding-top: 0px;
-          margin-top: 0px;
+        .product-col .price {
+          color: #2F542F; /* Green */ 
+          padding-bottom: 10px;
+        }
+
+        .product-col .price span{
+          font-size: 19px;
         }
       .product-col .cart-button{
         padding: 5px, 0px, 0px, 0px;
@@ -665,7 +663,17 @@ hr{
           color: white;
           border-bottom:none;
         }
+    .product-col  .qty-row {
+      padding-right: 20px;
+    }
 
+      .product-col .qty-input {
+        padding-left: 5px;
+      }
+      .product-col .volume-input {
+        padding-right: 16px;
+        padding-left: 6px;
+      }
 /* Category col*/
 
   .category-col {
