@@ -1,6 +1,6 @@
 .product-col.fixed-hight-product-col
   .row
-    .col-md-7.col-sm-7
+    .col-md-8.col-sm-7
       .caption
         %h4
           = link_to product.name , product_path(product)                   
@@ -34,7 +34,7 @@
               = hidden_field_tag 'sellable_id', product.id
               = hidden_field_tag 'package_type' + product.id.to_s,  'nurmal'
               = text_field_tag 'qty', 1, class: 'form-control', min: 1
-    .col-md-5.col-sm-5.col-xs-6.hidden-xs
+    .col-md-4.col-sm-5.col-xs-6.hidden-xs.no-padding
       = link_to product_path(product) do
         .image
           %img.img-responsive{:alt => "product", :src => product.image}/

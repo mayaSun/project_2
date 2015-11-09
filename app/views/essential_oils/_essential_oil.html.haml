@@ -1,6 +1,6 @@
 .product-col
   .row
-    .col-md-7.col-sm-7
+    .col-md-8.col-sm-7
       .caption
         %h4
           = link_to  essential_oil_path(essential_oil) do
@@ -30,7 +30,7 @@
               = button_tag nil, class: 'btn btn-cart', id: 'essential_oil-stock-submit' do
                 הוסף לסל
                 %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png' } 
-    .col-md-5.col-sm-5.col-xs-6.hidden-xs
+    .col-md-4.col-sm-5.col-xs-6.hidden-xs.no-padding
       = link_to essential_oil_path(essential_oil) do
         .image
           %img.img-responsive{:alt => "essential_oil", :src => essential_oil.image}/
