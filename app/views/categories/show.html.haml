@@ -27,6 +27,9 @@
           - @category.products.each do |product|
             .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
               = render 'products/product', :product => product
+          - @category.categories.each do |category|  
+            - category.products.each do |product|
+              .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right              
         / Products Row Ends
     / Related Products Ends
     / Primary Content Ends
