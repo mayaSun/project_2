@@ -99,7 +99,7 @@
                         %i.fa.fa-search        
               / Search Ends
       / Extra Small start
-      .row.visible-xs
+      .row.visible-xs.xs-device-logo-phone
         .col-xs-6
           #logo
             = link_to home_path do
@@ -109,15 +109,15 @@
             %span 052-8958957
             %i.glyphicon.glyphicon-phone-alt
           %br
-        .row  
-          .col-xs-10.col-xs-offset-1
-            #search  
-              = form_tag(search_path, method: "get") do            
-                .input-group
-                  = text_field_tag :search_term, params[:search_term], :placeholder => "חיפש מהיר באתר...",class: "form-control input-lg"  
-                  %span.input-group-btn
-                    = button_tag nil , class: "btn btn-lg", id: 'search-submit' do
-                      %i.fa.fa-search 
+      .row.visible-xs
+        .col-xs-12  
+          #search  
+            = form_tag(search_path, method: "get") do            
+              .input-group
+                = text_field_tag :search_term, params[:search_term], :placeholder => "חיפש מהיר באתר...",class: "form-control input-lg"  
+                %span.input-group-btn
+                  = button_tag nil , class: "btn btn-lg", id: 'search-submit' do
+                    %i.fa.fa-search 
       / Extra Small End
     / Main Header Ends
     / Info Main Menu Starts
