@@ -3,25 +3,26 @@
 .row
   .col-sm-12
     / Product Info Starts
-    - if false
-      .content-box
-        .row.product-info
-          / Left Starts
-          .col-sm-3.images-block
-            %p
-              %img.img-responsive.thumbnail{:alt => "Image", :src => @category.image }  
-          .col-sm-9.product-details
-            / Product Name Starts
-            .product-header
-              %h2 
-                = @category.name              
-            / Category Name Ends
-            %p 
-              = @category.description
+    .content-box
+      .row.product-info
+        / Left Starts
+        .col-sm-3.images-block
+          %p
+            %img.img-responsive.thumbnail{:alt => "Image", :src => @category.image }  
+        .col-sm-9.product-details
+          / Product Name Starts
+          .product-header
+            %h2 
+              = @category.name              
+          / Category Name Ends
+          %p 
+            = @category.description
         / Category Info Ends
     / Related Products Starts
     .product-info-box
       .content-box
+        %h3.heading 
+          מוצרים ב#{@category.name}
         / Products Row Starts
         .row
           - @category.products.each do |product|
