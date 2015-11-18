@@ -1,5 +1,6 @@
 - content_for :head do
   %title עשבי ארץ ישראל - #{@category.name}
+  %meta{:content => @category.description, :name => "description"}/
 .row
   .col-sm-12
     / Product Info Starts

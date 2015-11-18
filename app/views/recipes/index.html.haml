@@ -1,5 +1,7 @@
 - content_for :head do
   %title מרשמים עתיקים ותרופות סבתא
+%h4
+  כל המרשמים אשר נמצאים כאן הינם למעשה מרשמים עתיקים אשר לוקטו מהמשנה ומספרי קבלה עתיקים. אין אנו לוקחים אחריות על שום מרשם, ואנו ממליצים לבדוק כל דבר לגופו עם רופא אחראי.
 #accordion2.accordion
   - @recipes.each do |recipe|
     .accordion-group
@@ -11,5 +13,6 @@
           .row
             .col-sm-8.pull-right
               = simple_format(recipe.text)  
-            .col-sm-4.pull-right 
-              %img.img-responsive.thumbnail{:alt => "Image", :src => recipe.image } 
+            .col-sm-4.pull-right
+              - if recipe.image
+                %img.img-responsive.thumbnail{:alt => "Image", :src => recipe.image } 
