@@ -133,17 +133,23 @@
       .collapse.navbar-collapse.navbar-cat-collapse
         .row
           .col-sm-12
-            %ul.nav.nav-justified
-              %li.dropdown
+            %ul.nav.nav-justified              
+              %li.dropdown.hidden-xs
                 %a.dropdown-toggle{"data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" }
                   אינדקס צמחי מרפא 
-                %ul.dropdown-menu.pull-right{:role => "menu"}
+                %ul.dropdown-menu.pull-right.hidden-xs{:role => "menu"}
                   %li
                     = link_to 'לפי שם הצמח' , medicinal_herbs_path
                   %li
                     = link_to 'לפי התאמה לבעייה רפואית', medical_activities_path
                   %li
                     = link_to 'לפי חומרים פעילים', active_ingredients_path 
+              %li.visible-xs{:class => nav_active(medicinal_herbs_path)}
+                = link_to 'אינדקס צמחי מרפא' , medicinal_herbs_path
+              %li.visible-xs{:class => nav_active(medical_activities_path)}
+                = link_to 'אינדקס בעיות רפואית', medical_activities_path
+              %li.visible-xs{:class => nav_active(active_ingredients_path)}
+                = link_to 'אינדקס חומרים פעילים', active_ingredients_path 
               %li{:class => nav_active(crystals_path)}
                 = link_to 'אינדקס קריסטלים' , crystals_path 
               %li{:class => nav_active(active_museum_path)}
