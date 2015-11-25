@@ -1,9 +1,6 @@
 %header#header-area
   / Header Top Starts
   .header-top.navbar-fixed-top
-    - if false
-      .home-link
-        %i.fa.fa-home{:title => "Home"}
     .container.no-padding
       / Header Links Starts
       - if false
@@ -23,6 +20,10 @@
       .col-md-8.col-sm-6.col-xs-4
         .header-links
           %ul.nav.navbar-nav.pull-left
+            %li.hidden-xs{:class => nav_active(home_path)}
+              = link_to home_path do
+                .home-link
+                  %i.fa.fa-home{:title => "עמוד הבית"}
             - if logged_in? && current_user_admin?
               = link_to 'Administration', admin_users_path, class: 'btn shopping-cart-checkout-btn'
             - if logged_in?       
@@ -41,10 +42,11 @@
                 = link_to login_path, remote: true, class: 'small-devise-no-padding' do
                   %i.fa.fa-lock{:title => "Login"}
                   התחבר                 
-              %li          
-                = link_to register_to_get_2_plants_path, remote: true,class: 'small-devise-no-padding' do
-                  %span.hidden-sm.hidden-xs
-                    ** הרשם לקבלת 2 צמחי מרפא שימושיים **                       
+              %li     
+                - if false     
+                  = link_to register_to_get_2_plants_path, remote: true,class: 'small-devise-no-padding' do
+                    %span.hidden-sm.hidden-xs
+                      ** הרשם לקבלת 2 צמחי מרפא שימושיים **                       
       .col-md-4.col-sm-6.col-xs-8.no-padding
         .header-links
           %ul.nav.navbar-nav.pull-right.cart-links
@@ -69,14 +71,17 @@
     .main-header
       .row.hidden-xs
         / Logo Starts
-        .col-sm-1
-          = link_to home_path do
-            .home-link
-              %i.fa.fa-home
-        .col-sm-4.col-sm-offset-3.pull-left
+        .col-sm-4.col-sm-offset-0
+          = link_to register_to_get_2_plants_path, remote: true do
+            %img.img-responsive{:alt => "Medicinal Herbs", :src => "/images/free-plants.jpg", :title => "צמחי מרפא"}/
+            .free-plant-content-div-title
+              בריאות בגינת הבית  
+            .free-plant-content-div
+              הרשם עכשיו לקבלת 2 צמחי מרפא שימושיים ללא כל תמורה    
+        .col-sm-4.col-sm-offset-0.pull-left
           #logo
             = link_to home_path do
-              %img.img-responsive{:alt => "Cosmic Pendants", :src => "/images/logo.jpg", :title => "Holy Land Herbs"}/            
+              %img.img-responsive{:alt => "Holy Land Herbs", :src => "/images/logo.jpg", :title => "עשבי ארץ ישראל"}/            
         / Logo End
         / Search Starts
         .col-md-3.col-sm-4.search-phone
