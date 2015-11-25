@@ -1838,3 +1838,57 @@ hr{
 }
 
 }
+
+@media (min-width: 992px) {
+  .adds-content-div {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      width: 90%;
+      line-height: 1.3;
+      font-size: 32px;
+      color:  #2F542F; /*Green*/ 
+      text-shadow: -1px 1px 5px white, -1px 1px 5px white, 1px -1px 5px white, 1px -1px 5px white;
+  }
+
+  .adds-content-div-small {
+      position: absolute;
+      top: 60%;
+      right: 58%;
+      width: 45%;
+      line-height: 1.3;
+      font-size: 26px;
+      color:  #3e2e08; /*Dark brown*/ 
+      text-shadow: -1px 1px 5px white, -1px 1px 5px white, 1px -1px 5px white, 1px -1px 5px white;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .adds-content-div {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      width: 90%;
+      line-height: 1.3;
+      font-size: 24px;
+      color:  #2F542F; /*Green*/
+      text-shadow: -1px 1px 5px white, -1px 1px 5px white, 1px -1px 5px white, 1px -1px 5px white;      
+  }
+
+  .adds-content-div-small {
+      position: absolute;
+      top: 60%;
+      right: 55%;
+      width: 45%;
+      line-height: 1.3;
+      font-size: 20px;
+      color:  #3e2e08; /*Dark brown*/ 
+      text-shadow: -1px 1px 5px white, -1px 1px 5px white, 1px -1px 5px white, 1px -1px 5px white;
+  }
+}
+
+.adds-content-div a:hover{
+  text-decoration: none;
+  color: #2F542F; /* Green */
+}
