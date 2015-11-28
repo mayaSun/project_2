@@ -1810,7 +1810,7 @@ hr{
 }
 
 .home-page-category-links a{
-    color: #3e2e08; /*Dark brown*/
+    color: #C9B538; /* Gold */ 
 }
 
 .home-page-category-links a:hover{
@@ -1821,6 +1821,10 @@ hr{
 .home-page-category-links-img {
   height: 150px;
   overflow: hidden;
+}
+
+.home-page-category-links-img img{
+  width: 100%;
 }
 
 .home-page-category-title {
