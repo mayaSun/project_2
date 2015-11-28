@@ -1805,8 +1805,31 @@ hr{
 }
 
 .home-page-product-links {
-  border: 7px solid #C9B538; /* Green */ 
+  border: 7px solid #C9B538; /* Gold */ 
   margin-bottom: 2px;
+}
+
+.home-page-category-links a{
+    color: #3e2e08; /*Dark brown*/
+}
+
+.home-page-category-links a:hover{
+  text-decoration: none;
+  color: #C9B538; /*gold*/
+}
+
+.home-page-category-links-img {
+  height: 150px;
+  overflow: hidden;
+}
+
+.home-page-category-title {
+  height: 40px;
+  font-size: 22px;
+  text-align: center;
+  background: #E9E2B4;/*Sand*/
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .accordion-group .accordion-heading{

@@ -3,6 +3,7 @@ class PagesController <ApplicationController
   def home
     @best_sellers = Product.all.first(10)
     @new_products = Product.all.last(10)
+    @categories = [Category.find_by(name: 'מזון רפואי'), Category.find_by(name: 'טיפוח קוסמטי'), Category.find_by(name: 'מוצרים מיוחדים'),Category.find_by(name: 'שמני בסיס')]
   end
 
   def search
