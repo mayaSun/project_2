@@ -1820,14 +1820,14 @@ hr{
 
 @media (min-width: 992px) {
   .home-page-category-links-img {
-    height: 150px !important;
+    height: 140px !important;
     overflow: hidden;
   }
 }
 
 @media (min-width: 760px) {
   .home-page-category-links-img {
-    height: 100px;
+    height: 115px;
     overflow: hidden;
   }
 }
