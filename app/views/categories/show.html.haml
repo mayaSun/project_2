@@ -5,16 +5,14 @@
   .col-sm-12
     / Product Info Starts
     .content-box
-      .row.product-info
+      .row.category-info
         / Left Starts
         .col-sm-3.images-block
-          %p
-            %img.img-responsive.thumbnail{:alt => "Image", :src => @category.image }  
+          %img.img-responsive.thumbnail{:alt => "Image", :src => @category.image }  
         .col-sm-9.product-details
           / Product Name Starts
-          .product-header
-            %h2 
-              = @category.name              
+          .header  
+            = @category.name              
           / Category Name Ends
           %p 
             = simple_format(@category.description)

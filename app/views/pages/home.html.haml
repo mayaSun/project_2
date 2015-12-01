@@ -38,6 +38,15 @@
         %a.right.carousel-control{"data-slide" => "next", :href => "#main-carousel", :role => "button"}
           %span.glyphicon.glyphicon-chevron-right
     / Slider Section Ends
+%br
+.row 
+  - @categories.each do |category|
+    .col-md-3.col-sm-3.col-xs-12.pull-right.home-page-category-links
+      = link_to category do
+        .home-page-category-links-img
+          %img.img-responsive{:alt => "Slider", :src => category.image}/
+        .home-page-category-title
+          = category.name  
 %br  
 .row 
   .col-md-4.col-sm-5.no-padding
@@ -56,25 +65,5 @@
       %h3
         כל המרשמים, צמחי המרפא והמינרלים אצלנו עברו זיהוי ודאי על פי תורת הרמב"ם וחכמי העולם העתיק.
 %br
-.row 
-  .col-sm-4.col-xs-12.pull-right
-    = link_to Category.find_by(name: 'שמנים בטעמים') do
-      .home-page-product-links
-        %img.img-responsive{:alt => "Slider", :src => "images/oliveoilfamily.jpg"}/
-  .col-sm-4.col-xs-12.pull-right
-    = link_to Product.find_by(name: 'מי כסף קולואידים') do
-      .home-page-product-links
-        %img.img-responsive{:alt => "Slider", :src => "images/silverwater1.jpg"}/  
-  .col-sm-4.col-xs-12.pull-right
-    = link_to Product.find_by(name: 'ריבת אתרוגים') do
-      .home-page-product-links
-        %img.img-responsive{:alt => "Slider", :src => "images/etrog.jpg"}/
 %br
-.row 
-  - @categories.each do |category|
-    .col-md-3.col-sm-3.col-xs-12.pull-right.home-page-category-links
-      = link_to category do
-        .home-page-category-links-img
-          %img.img-responsive{:alt => "Slider", :src => category.image}/
-        .home-page-category-title
-          = category.name  
+= render 'home_page_products'

@@ -188,7 +188,7 @@
                 %li{:class => nav_active(jewelries_path),:style => "background-image: url(/images/oils-740177_640.jpg);"}
                   = link_to 'תכשיטים רפואיים' , jewelries_path, class: 'category'
               %li{:class => nav_active(essential_oils_path),:style => "background-image: url(/images/essential_oil.jpg);"}
-                = link_to  essential_oils_path, class: 'category' do
+                = link_to  essential_oils_path, class: 'tow-lines category' do
                   שמנים אתריים                
               %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:class => nav_active(category_path(category('שמני בסיס'))), :style => "background-image: url(/images/base_oils.jpg);"}
                 = link_to 'שמני בסיס', category_path(category('שמני בסיס')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
@@ -219,7 +219,7 @@
                               .title
                                 = product.name 
               %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:class => nav_active(category_path(category('טיפוח קוסמטי'))),:style => "background-image: url(/images/cosmetic_care.jpg);"}
-                = link_to 'טיפוח קוסמטי', category_path(category('טיפוח קוסמטי')), class: 'category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
+                = link_to 'טיפוח קוסמטי', category_path(category('טיפוח קוסמטי')), class: 'tow-lines category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
                 %ul.dropdown-menu
                   / Products Row Starts
                   .row.category-dropdown-menu

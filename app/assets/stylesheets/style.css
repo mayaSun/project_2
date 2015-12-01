@@ -870,7 +870,8 @@ hr{
 
   #main-container{
     margin-bottom:35px;
-
+    margin-top: 0px !important;
+    padding-top: 0px !important;
   }
   
 /* Category Intro Content Styles Starts */
@@ -1103,6 +1104,24 @@ hr{
   margin-right: 0px !important;
 }
 
+.category-info .images-block{
+  padding: 0px 0px 0px 0px !important;
+  margin: 0px 0px 0px 0px !important;
+}
+
+.category-info .images-block img{
+  float: left;
+  padding: 0px 0px 0px 0px !important;
+  margin: 0px 0px 0px 0px !important;
+}
+
+.category-info .header{
+  color: #C9B538; /*gold*/
+  font-size: 20px;
+  font-size: 28px;
+  padding-bottom: 5px;
+}
+
 /* Tabs Styles Starts */
 
   .tabs-panel{
@@ -1238,8 +1257,8 @@ hr{
   .content-box{
     float: center;
     background: white; 
-    margin-top:7px;
-    /*padding:30px;*/
+    margin-top:0px;
+    padding-top:0px;
     text-align: right;
   }
     .content-box .special-heading{
@@ -1805,9 +1824,39 @@ hr{
 }
 
 .home-page-product-links {
+  height: 188px;
   border: 7px solid #C9B538; /* Gold */ 
   margin-bottom: 2px;
 }
+
+.home-page-product-links:hover .title{
+  color: #C9B538; /* Gold */
+}
+
+.home-page-product-links .title{
+  font-size: 30px;
+  line-height: 1.1;
+  color: #2F542F; /* Green */
+  padding-bottom: 5px;
+}
+
+.home-page-product-links .price {
+  float: center;
+  color: #2F542F; /* Green */
+  font-size: 20px;
+}
+
+.home-page-product-links .price span{
+  font-size: 12px !important;
+  color: #3e2e08; /*Dark brown*/
+}
+
+
+.home-page-product-links .text{
+  color: #3e2e08; /*Dark brown*/
+}
+
+
 
 .home-page-category-links a{
     color: #3e2e08; /*Dark brown*/

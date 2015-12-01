@@ -1,0 +1,73 @@
+.row 
+  - if false
+    .col-sm-3.col-xs-12.pull-right
+      = link_to Category.find_by(name: 'שמנים בטעמים') do
+        .home-page-product-links
+          .row
+            .col-md-7
+              .title
+                שמן זית בטעמים   
+              .text
+                הפתרון המושלם לתיבול בלי לאבד את הארומה  
+            .col-md-5
+              %img.img-responsive{:alt => "Slider", :src => "images/oliveoilfamily.jpg"}/
+  .col-sm-3.col-xs-12.pull-right
+    = link_to Category.find_by(name: 'שמנים בטעמים') do
+      .home-page-product-links
+        .row
+          .col-md-7
+            .title
+              שמן זית מעולה
+            .price
+              = display_price(25)
+              %span
+                250מ"ל                 
+            .text
+              שמן זית בכבישה קרה  
+          .col-md-5
+            %img.img-responsive{:alt => "Slider", :src => "images/oliveoil.jpg"}/
+  .col-sm-3.col-xs-12.pull-right
+    = link_to Product.find_by(name: 'מי כסף קולואידים') do
+      .home-page-product-links
+        .row
+          .col-md-7
+            .title
+              מי כסף קלואידים    
+            .price
+              = display_price(40)
+              %span
+                100מ"ל              
+            .text
+              אנטיביוטיקה סלקטיבית ידועה משחר ההיסטוריה
+          .col-md-5
+            %img.img-responsive{:alt => "Slider", :src => "images/silverwater1.jpg"}/
+  .col-sm-3.col-xs-12.pull-right
+    = link_to Product.find_by(name: 'מי כסף קולואידים') do
+      .home-page-product-links
+        .row
+          .col-md-7
+            .title
+              ריבת אתרוגים
+            .price
+              = display_price(54)
+              %span
+                350גרם     
+            .text
+              המתנה הטובה ביותר לנשים בהריון עתירת מינרליים
+          .col-md-5
+            %img.img-responsive{:alt => "Slider", :src => "images/etrog.jpg"}/
+  .col-sm-3.col-xs-12.pull-right
+    = link_to Product.find_by(name: 'מי כסף קולואידים') do
+      .home-page-product-links
+        .row
+          .col-md-7
+            .title
+              טחינה אתיופית     
+            .price
+              = display_price(20)
+              %span
+                380גרם 
+            .text
+              טחינה בכבישה קרה ובאיכות מעולה
+          .col-md-5
+            %img.img-responsive{:alt => "Slider", :src => "images/tahini.jpg"}/
