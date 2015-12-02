@@ -1829,6 +1829,10 @@ hr{
   margin-bottom: 2px;
 }
 
+.home-page-product-links img{
+  height: 165px;
+}
+
 .home-page-product-links:hover .title{
   color: #C9B538; /* Gold */
 }
