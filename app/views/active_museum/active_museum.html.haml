@@ -3,21 +3,36 @@
 .information-page-content  
   .row
     .col-md-9.col-sm-8  
-      / Slider Section Starts
       .slider
         #main-carousel.carousel.slide{"data-ride" => "carousel"}
           / Wrapper For Slides Starts
           .carousel-inner
             .item.active
-              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide1-img.jpg"}/
+              %img.img-responsive{:alt => "צמחי מרפא", :src => "images/active-museum/slide1-img.jpg"}/
+              .slider-content-div
+                מקורות מידע המתבססים על מסורת ארוכת שנים של הרמב"ם. 
             .item
-              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide2-img.jpg"}/
+              %img.img-responsive{:alt => "צמחי מרפא", :src => "images/active-museum/slide2-img.jpg"}/
+              .slider-content-div
+                מידע מקיף ושימושי על צמחי המרפא של ארץ ישראל.
             .item
-              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide3-img.jpg"}/   
+              %img.img-responsive{:alt => "צמחי מרפא", :src => "images/active-museum/slide3-img.jpg"}/  
+              .slider-content-div
+                הצוות שלנו שותל גינה עירונית ברחביה (ירושלים).              
             .item
-              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide4-img.jpg"}/
+              %img.img-responsive{:alt => "שמנים אתריים", :src => "images/active-museum/slide4-img.jpg"}/
+              .slider-content-div
+                חלקות לעיבוד ולגידול ירקות ו/או צמחי מרפא לכל דורש על פי שיטת כל הקודם זוכה.
             .item
-              %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide5-img.jpg"}/        
+              %img.img-responsive{:alt => "צמחי מרפא", :src => "images/active-museum/slide5-img.jpg"}/ 
+              .slider-content-div
+                המוזיאון הפעיל..       
           / Wrapper For Slides Ends
+          / Controls Starts
+          %a.left.carousel-control{"data-slide" => "prev", :href => "#main-carousel", :role => "button"}
+            %span.glyphicon.glyphicon-chevron-left
+          %a.right.carousel-control{"data-slide" => "next", :href => "#main-carousel", :role => "button"}
+            %span.glyphicon.glyphicon-chevron-right
+      / Slider Section Ends
     .col-md-3.col-sm-4
       = render 'active_museum_menu'
