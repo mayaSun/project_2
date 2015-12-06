@@ -36,17 +36,17 @@
             .col-md-8.col-xs-7.col-sm-7.pull-right
               = button_tag nil, class: 'btn btn-cart', id: 'product-stock-submit' do
                 הוסף לסל
-                %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/basket.png' }     
+                %img.shopping-bag{:alt => "סל הקניות", :src => '/images/basket.png' }     
     .col-md-4.col-sm-5.col-xs-6.no-padding
       = link_to product_path(product) do
         .image
-          %img.img-responsive{:alt => "product", :src => product.image}/
+          %img.img-responsive{:alt => product.name, :src => product.image}/
 .product-col.fixed-hight-product-col.visible-xs
   .row
     .col-xs-4.pull-right
       = link_to product_path(product) do
         .image
-          %img.img-responsive{:alt => "product", :src => product.image}/
+          %img.img-responsive{:alt => product.name, :src => product.image}/
     .col-xs-8.pull-right  
       .caption
         %h4

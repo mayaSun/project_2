@@ -68,7 +68,7 @@
         / Left Ends  
     / Right Starts
     .col-sm-3.images-block      
-      %img.img-responsive.thumbnail{:alt => "Image", :src => @crystal.image}/  
+      %img.img-responsive.thumbnail{:alt => @crystal.name, :src => @crystal.image}/  
       .attribute
         - if @crystal.image_link && @crystal.image_link.length > 5
           %span
