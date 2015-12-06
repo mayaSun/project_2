@@ -1,6 +1,6 @@
 .medicinal-herb-col
   = link_to  medicinal_herb_path(medicinal_herb) do
     .image
-      %img.img-responsive{:alt => "product", :src => medicinal_herb.image}/              
+      %img.img-responsive{:alt => "צמחי מרפא #{medicinal_herb.name}", :src => medicinal_herb.image}/              
     %h4
       = medicinal_herb.name

@@ -7,13 +7,13 @@
       .col-sm-4.no-padding
         - if @medicinal_herb.sprout_image.file
           .image
-            %img.img-responsive{:alt => "product", :src => @medicinal_herb.sprout_image}/
+            %img.img-responsive{:alt => "צמחי מרפא", :src => @medicinal_herb.sprout_image}/
             נבט של  
             %span 
               = @medicinal_herb.name
         - if @medicinal_herb.image      
           .image
-            %img.img-responsive{:alt => "product", :src => @medicinal_herb.image}/ 
+            %img.img-responsive{:alt => "צמחי מרפא", :src => @medicinal_herb.image}/ 
             = @medicinal_herb.name
         .next-prev-btn-group 
           .pull-right        
