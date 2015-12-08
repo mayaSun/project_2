@@ -23,7 +23,7 @@
         .admin-product-form-row
           .row
             .col-xs-4
-              = f.select :quantity_unit,  options_for_select(['מ"ל', 'גרם'], f.object.quantity_unit), hide_label: true
+              = f.select :quantity_unit,  options_for_select(['מ"ל', 'גרם','יחידה'], f.object.quantity_unit), hide_label: true
             .col-xs-8
               = f.text_field :quantity, label: '*כמות באריזה:',label_col: "col-sm-6.col-sm.push-6", control_col: "col-sm-6"  
       .sub-title
