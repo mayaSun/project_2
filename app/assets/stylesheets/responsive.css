@@ -416,7 +416,7 @@
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .container {
     width: 98% !important;
   }
@@ -467,4 +467,133 @@
     width: 310px;  
   }
 }
+
+/* Extra Small devices (tablets, 768px and up) */
+@media (min-width: 250px) { 
+  .home-page-product-links .title{
+    font-size: 8vw ;
+  }
+
+  .home-page-product-links .price {
+    font-size: 6vw;
+  }
+
+  .home-page-product-links .text{
+    font-size: 4vw;
+  }
+
+  .adds-content-div {
+      top: 10%;
+      right: 10%;
+      width: 90%;
+      line-height: 1.3;
+      font-size: 8vw;
+  }
+
+  .adds-content-div-small {
+      top: 60%;
+      right: 58%;
+      width: 40%;
+      line-height: 1.3;
+      font-size: 5vw;
+  }
+
+ }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  .home-page-product-links .title{
+    font-size: 2.8vw ;
+  }
+
+  .home-page-product-links .price {
+    font-size: 2.2vw;
+  }
+
+  .home-page-product-links .text{
+    font-size: 1.8vw;
+  }
+
+  .adds-content-div {
+      top: 10%;
+      right: 10%;
+      width: 90%;
+      line-height: 1.3;
+      font-size: 4vw;
+  }
+
+  .adds-content-div-small {
+      top: 55%;
+      right: 56%;
+      width: 45%;
+      line-height: 1.3;
+      font-size: 2.8vw;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  .home-page-product-links .title{
+    font-size: 2.2vw ;
+  }
+
+  .home-page-product-links .price {
+    font-size: 1.8vw;
+  }
+
+  .home-page-product-links .text{
+    font-size: 1.4vw;
+  }
+
+  .adds-content-div {
+      top: 10%;
+      right: 10%;
+      width: 90%;
+      line-height: 1.3;
+      font-size: 3vw;
+  }
+
+  .adds-content-div-small {
+      top: 60%;
+      right: 58%;
+      width: 45%;
+      line-height: 1.3;
+      font-size: 2vw;
+  }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1200px) { 
+  .home-page-product-links .title{
+    font-size: 26px ;
+  }
+
+  .home-page-product-links .price {
+    font-size: 20px;
+  }
+
+  .home-page-product-links .text{
+    font-size: 18px;
+  }
+
+  .adds-content-div {
+      top: 10%;
+      right: 10%;
+      width: 90%;
+      line-height: 1.3;
+      font-size: 36px;
+  }
+
+  .adds-content-div-small {
+      top: 60%;
+      right: 58%;
+      width: 40%;
+      line-height: 1.3;
+      font-size: 22px;
+  }
+
+}
+
+
 
