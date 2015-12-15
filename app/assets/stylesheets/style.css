@@ -224,10 +224,6 @@ hr{
 
 /* Cart Style Starts */  
 
-  #cart:hover > ul.dropdown-menu { 
-    display: block;   
-  }
-
   #cart .btn{
     margin-top: 5px;
     padding-bottom: 4px;
@@ -270,9 +266,18 @@ hr{
          -moz-border-radius:5px 0 0 5px;
           border-radius:5px 0 0 5px;
     }
-    #cart .open > .dropdown-menu{
+
+
+    #cart:hover > ul.dropdown-menu,
+    #cart .open > .dropdown-menu,
+    #cart > .dropdown-menu:hover,
+    #cart  > .dropdown-menu:after  {
       display:block;
     }
+
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+}
     #cart .dropdown-menu table,
     #cart .checkout-cart table {
       color:  #3e2e08; /*Dark brown*/ 
@@ -684,6 +689,7 @@ hr{
   }
 
   .category-col .image > img {
+    height: 107;
     margin: auto;
   }
 
