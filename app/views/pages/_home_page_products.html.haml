@@ -63,6 +63,21 @@
           .col-md-5.col-sm-5.col-xs-5
             %img.img-responsive{:alt => "צמחי מרפא", :src => "images/tahini.jpg"}/
   .col-sm-4.col-md-3.col-xs-12.pull-right
+    = link_to Category.find_by(name: 'שמנים בטעמים') do
+      .home-page-product-links
+        .row
+          .col-md-7.col-sm-7.col-xs-7
+            .title
+              שמן זית בטעמים
+            .price
+              = display_price(40)
+              %span
+                250מ"ל 
+            .text
+              הפתרון המושלם לתיבול בלי לאבד את הארומה
+          .col-md-5.col-sm-5.col-xs-5
+            %img.img-responsive{:alt => "צמחי מרפא", :src => "images/oliveoilfamily.jpg"}/  
+  .col-sm-4.col-md-3.col-xs-12.pull-right
     = link_to Product.find_by(name: 'ממרח קצח') do
       .home-page-product-links
         .row
@@ -107,18 +122,4 @@
               איכות המעולה כבישה קרה, משקדים הגדלים בארץ ישראל
           .col-md-5.col-sm-5.col-xs-5
             %img.img-responsive{:alt => "צמחי מרפא", :src => "images/almondoil.jpg"}/
-  .col-sm-4.col-md-3.col-xs-12.pull-right
-    = link_to Category.find_by(name: 'שמנים בטעמים') do
-      .home-page-product-links
-        .row
-          .col-md-7.col-sm-7.col-xs-7
-            .title
-              שמן זית בטעמים
-            .price
-              = display_price(40)
-              %span
-                250מ"ל 
-            .text
-              הפתרון המושלם לתיבול בלי לאבד את הארומה
-          .col-md-5.col-sm-5.col-xs-5
-            %img.img-responsive{:alt => "צמחי מרפא", :src => "images/oliveoilfamily.jpg"}/            
+            
