@@ -1,16 +1,7 @@
+.product-info-box
+  %h3.heading 
+    מוצרים נבחרים
 .row 
-  - if false
-    .col-md-4.col-sm-3.col-xs-12.pull-right
-      = link_to Category.find_by(name: 'שמנים בטעמים') do
-        .home-page-product-links
-          .row
-            .col-md-7.col-sm-7.col-xs-7
-              .title
-                שמן זית בטעמים   
-              .text
-                הפתרון המושלם לתיבול בלי לאבד את הארומה  
-            .col-md-5.col-sm-5.col-xs-5
-              %img.img-responsive{:alt => "צמחי מרפא", :src => "images/oliveoilfamily.jpg"}/
   .col-sm-4.col-md-3.col-xs-12.pull-right
     = link_to Product.find_by(name: 'שמן זית') do
       .home-page-product-links
@@ -71,3 +62,63 @@
               טחינה בכבישה קרה ובאיכות מעולה
           .col-md-5.col-sm-5.col-xs-5
             %img.img-responsive{:alt => "צמחי מרפא", :src => "images/tahini.jpg"}/
+  .col-sm-4.col-md-3.col-xs-12.pull-right
+    = link_to Product.find_by(name: 'ממרח קצח') do
+      .home-page-product-links
+        .row
+          .col-md-7.col-sm-7.col-xs-7
+            .title
+              ממרח קצח טהור     
+            .price
+              = display_price(25)
+              %span
+                182גרם 
+            .text
+              מקצח מלא ללא שום תוספות בכבישה קרה באבני רחיים
+          .col-md-5.col-sm-5.col-xs-5
+            %img.img-responsive{:alt => "צמחי מרפא", :src => "images/wholecummin.jpg"}/
+  .col-sm-4.col-md-3.col-xs-12.pull-right
+    = link_to Product.find_by(name: 'אלכוהול רימונים') do
+      .home-page-product-links
+        .row
+          .col-md-7.col-sm-7.col-xs-7
+            .title
+              אלכוהול רימונים    
+            .price
+              = display_price(80)
+              %span
+                500מ"ל 
+            .text
+              אלכוהול איכותי ביותר מזוקק בוואקום מיין רימונים
+          .col-md-5.col-sm-5.col-xs-5
+            %img.img-responsive{:alt => "צמחי מרפא", :src => "images/pomegranate.jpg"}/
+  .col-sm-4.col-md-3.col-xs-12.pull-right
+    = link_to Product.find_by(name: 'שמן שקדים') do
+      .home-page-product-links
+        .row
+          .col-md-7.col-sm-7.col-xs-7
+            .title
+              שמן משקדים 
+            .price
+              = display_price(31)
+              %span
+                100מ"ל 
+            .text
+              איכות המעולה כבישה קרה, משקדים הגדלים בארץ ישראל
+          .col-md-5.col-sm-5.col-xs-5
+            %img.img-responsive{:alt => "צמחי מרפא", :src => "images/almondoil.jpg"}/
+  .col-sm-4.col-md-3.col-xs-12.pull-right
+    = link_to Category.find_by(name: 'שמנים בטעמים') do
+      .home-page-product-links
+        .row
+          .col-md-7.col-sm-7.col-xs-7
+            .title
+              שמן זית בטעמים
+            .price
+              = display_price(40)
+              %span
+                250מ"ל 
+            .text
+              הפתרון המושלם לתיבול בלי לאבד את הארומה
+          .col-md-5.col-sm-5.col-xs-5
+            %img.img-responsive{:alt => "צמחי מרפא", :src => "images/oliveoilfamily.jpg"}/            
