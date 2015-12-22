@@ -27,9 +27,10 @@
           - @category.products.each do |product|
             .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right
               = render 'products/product', :product => product
-          - @category.categories.each do |category|
-            %h3.heading 
-              = @category.name   
+        - @category.categories.each do |category|
+          %h3.heading 
+            = category.name   
+          .row  
             - category.products.each do |product|
               .col-md-4.col-sm-6.col-xs-12.no-padding.pull-right  
                 = render 'products/product', :product => product            
