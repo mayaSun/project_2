@@ -209,6 +209,15 @@
                 %ul.dropdown-menu
                   / Products Row Starts
                   .row.category-dropdown-menu
+                    - category('מוצרים מיוחדים').categories.each do |sub_category|
+                      .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
+                        %li
+                          = link_to category_path(sub_category) do
+                            .category-col
+                              .image
+                                %img.img-responsive{:alt => "product", :src => sub_category.image.big_thumb}/
+                              .title
+                                = sub_category.name 
                     - category('מוצרים מיוחדים').products.each do |product|
                       .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
                         %li
@@ -217,7 +226,17 @@
                               .image
                                 %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
                               .title
-                                = product.name 
+                                = product.name
+                    - category('מזון רפואי').products.each do |product|
+                      .col-md-2.col-sm-2.col-xs-4.no-padding.pull-right
+                        %li
+                          = link_to product_path(product) do
+                            .category-col
+                              .image
+                                %img.img-responsive{:alt => "product", :src => product.image.big_thumb}/
+                              .title
+                                = product.name   
+
               %li.dropdown.dropdown-category.hidden-sm.hidden-xs{:class => nav_active(category_path(category('טיפוח קוסמטי'))),:style => "background-image: url(/images/cosmetic_care.jpg);"}
                 = link_to 'טיפוח קוסמטי', category_path(category('טיפוח קוסמטי')), class: 'tow-lines category dropdown-toggle disabled', "data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown", "data-placement" => "top" 
                 %ul.dropdown-menu
