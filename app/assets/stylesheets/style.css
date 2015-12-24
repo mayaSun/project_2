@@ -257,7 +257,7 @@ hr{
       left: auto;
       direction:RTL;
       min-width: 100%;
-      margin-top:10px;
+      padding-top:10px;
       border:none;
       z-index: 1001;
       padding:5px;
@@ -269,15 +269,10 @@ hr{
 
 
     #cart:hover > ul.dropdown-menu,
-    #cart .open > .dropdown-menu,
-    #cart > .dropdown-menu:hover,
-    #cart  > .dropdown-menu:after  {
+    #cart > ul.dropdown-menu:hover{
       display:block;
     }
 
-.dropdown:hover .dropdown-menu {
-    display: block !important;
-}
     #cart .dropdown-menu table,
     #cart .checkout-cart table {
       color:  #3e2e08; /*Dark brown*/ 
@@ -2005,4 +2000,8 @@ hr{
       color:  #2F542F; /* Green */
       text-shadow: -1px 1px 5px white, -1px 1px 5px white, 1px -1px 5px white, 1px -1px 5px white;  
   }
+}
+
+.thumbnail{
+      border:none;
 }
