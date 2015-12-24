@@ -6,7 +6,7 @@
     עגלת הקניות שלך ריקה..
 - else
   .row
-    .col-sm-12.col-md-10.pull-right
+    .col-sm-12.col-md-11.pull-right
       %h2.main-heading.text-center
         עגלת הקניות
       .table-responsive.shopping-cart-table
@@ -16,11 +16,13 @@
               %td.text-center{:width => "20%"}
               %td.text-center{:width => "30%"}
                 שם המוצר
-              %td.text-center{:width => "12%"}
+              %td.text-center{:width => "10%"}
+                אריזה                
+              %td.text-center{:width => "10%"}
                 מחיר ליחידה
-              %td.text-center{:width => "19%"}
+              %td.text-center{:width => "17%"}
                 כמות
-              %td.text-center{:width => "12%"}
+              %td.text-center{:width => "10%"}
                 סכ"ה
               %td.text-center{:width => "5%"}
                 מחק
@@ -33,6 +35,8 @@
                       %img.shopping-cart-table-img{:alt => shopping_cart_item.name, :src => shopping_cart_item.image.big_thumb, :title => "Product Name"}/
                   %td.text-center
                     = link_to shopping_cart_item.name, shopping_cart_item.sellable
+                  %td.text-center
+                    #{display_item_quantity(shopping_cart_item)}
                   %td.text-center
                     #{display_price(shopping_cart_item.price)}
                   %td.text-center

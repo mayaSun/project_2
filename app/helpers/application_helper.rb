@@ -16,6 +16,28 @@ module ApplicationHelper
     quantity ? quantity.to_s + quantity_unit : nil
   end
 
+  def display_item_quantity(item)
+    if item.sellable_type == "EssentialOil"
+      case item.package_type
+        when '5ml'
+          display_quantity(5, "מ\"ל")
+        when '10ml'
+          display_quantity(10, "מ\"ל")
+        when '50ml'
+          display_quantity(50, "מ\"ל")
+      end 
+    else
+      case item.package_type
+        when 'nurmal'
+          display_quantity(item.sellable.quantity, item.sellable.quantity_unit)
+        when 'medium'
+          display_quantity(item.sellable.medium_package_price, item.sellable.quantity_unit)
+        when 'big'
+          display_quantity(item.sellable.big_package_quantity, item.sellable.quantity_unit)
+      end        
+    end
+  end
+
   def display_date(date)
     #date.to_formatted_s(:long) 
     date.strftime("%d/%m/%Y %l:%M%P") unless !date # 03/14/2013 9:09pm 
