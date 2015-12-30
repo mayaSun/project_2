@@ -26,7 +26,7 @@ class Order <ActiveRecord::Base
     if delivery_method == 'post_mail'
       Order.post_mail_shipping_bill(calculate_order_weight)
     elsif delivery_method == 'ups'
-      return 40
+      return 10
     else 
       return 0
     end
